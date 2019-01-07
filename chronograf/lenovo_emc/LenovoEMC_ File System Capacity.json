@@ -1,0 +1,289 @@
+{
+	"meta": {
+		"chronografVersion": "1.7.4",
+		"sources": {
+			"0": {
+				"name": "http://192.168.11.21:8086",
+				"link": "/chronograf/v1/sources/0"
+			}
+		}
+	},
+	"dashboard": {
+		"id": 7,
+		"cells": [
+			{
+				"i": "803165ab-346e-4d97-88c7-39bb7ce1c1ea",
+				"x": 0,
+				"y": 0,
+				"w": 3,
+				"h": 1,
+				"name": "Storage Capacity Used",
+				"queries": [
+					{
+						"query": "SELECT last(\"hrStorageAllocationUnits\") * last(\"hrStorageUsed\") / 1000000 AS \"Bytes Used\" FROM \"snmp\".\"autogen\".\"HOST-RESOURCES-MIB::hrStorageEntry\" WHERE time > :dashboardTime: AND \"host\"=':NAS:' AND \"hrStorageDescr\"=':FileSystem:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"hrStorageAllocationUnits\") * last(\"hrStorageUsed\") / 1000000 AS \"Bytes Used\" FROM \"snmp\".\"autogen\".\"HOST-RESOURCES-MIB::hrStorageEntry\" WHERE time > :dashboardTime: AND \"host\"=':NAS:' AND \"hrStorageDescr\"=':FileSystem:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "Used",
+						"prefix": "",
+						"suffix": "MB",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/7/cells/803165ab-346e-4d97-88c7-39bb7ce1c1ea"
+				}
+			},
+			{
+				"i": "55e25198-a762-4973-b276-8d673f5373aa",
+				"x": 0,
+				"y": 1,
+				"w": 12,
+				"h": 3,
+				"name": "Storage Capacity Used",
+				"queries": [
+					{
+						"query": "SELECT last(\"hrStorageAllocationUnits\") * last(\"hrStorageUsed\") AS \"Bytes Used\" FROM \"snmp\".\"autogen\".\"HOST-RESOURCES-MIB::hrStorageEntry\" WHERE time > :dashboardTime: AND \"host\"=':NAS:' AND \"hrStorageDescr\"=':FileSystem:' GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"hrStorageAllocationUnits\") * last(\"hrStorageUsed\") AS \"Bytes Used\" FROM \"snmp\".\"autogen\".\"HOST-RESOURCES-MIB::hrStorageEntry\" WHERE time > :dashboardTime: AND \"host\"=':NAS:' AND \"hrStorageDescr\"=':FileSystem:' GROUP BY time(:interval:) FILL(previous)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Used",
+						"prefix": "",
+						"suffix": "B",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "2d28ed1f-ac3b-48cc-a3b0-a41b6c265c9b",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "59bdd26f-60d1-4318-a848-8574e85f38d0",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "d58cfb1e-acc6-4f44-87f1-ef5022813c95",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/7/cells/55e25198-a762-4973-b276-8d673f5373aa"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":NAS:",
+				"values": [
+					{
+						"value": "nas1",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "f58c6c0a-aeb0-4889-b5f7-1f747a36890d",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"snmp\" WITH KEY=\"host\" WHERE \"agent_type\"='lenovo_emc'",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/7/templates/f58c6c0a-aeb0-4889-b5f7-1f747a36890d"
+				}
+			},
+			{
+				"tempVar": ":FileSystem:",
+				"values": [
+					{
+						"value": "/mnt/pools/A/A0",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "b74ebe6e-f514-4f9e-b284-afcf1459f7eb",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"snmp\" WITH KEY=\"hrStorageDescr\" WHERE \"host\"=':NAS:' AND \"hrStorageType\"='.1.3.6.1.2.1.25.2.1.4'",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/7/templates/b74ebe6e-f514-4f9e-b284-afcf1459f7eb"
+				}
+			}
+		],
+		"name": "LenovoEMC: File System Capacity",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/7",
+			"cells": "/chronograf/v1/dashboards/7/cells",
+			"templates": "/chronograf/v1/dashboards/7/templates"
+		}
+	}
+}
