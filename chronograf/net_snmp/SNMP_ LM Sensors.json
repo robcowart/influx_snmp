@@ -1,0 +1,848 @@
+{
+	"meta": {
+		"chronografVersion": "1.7.8",
+		"sources": {
+			"0": {
+				"name": "http://192.168.9.11:8086",
+				"link": "/chronograf/v1/sources/0"
+			}
+		}
+	},
+	"dashboard": {
+		"id": 27,
+		"cells": [
+			{
+				"i": "2f321df6-51fe-4876-a8aa-642f69d097ae",
+				"x": 6,
+				"y": 3,
+				"w": 6,
+				"h": 3,
+				"name": ":function: Fan Speed - :host: - all fans",
+				"queries": [
+					{
+						"query": "SELECT :function:(\"lmFanSensorsValue\") AS \"voltage\" FROM \"snmp\"..\"LM-SENSORS-MIB::lmFanSensorsEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),lmFanSensorsDevice FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT :function:(\"lmFanSensorsValue\") AS \"voltage\" FROM \"snmp\"..\"LM-SENSORS-MIB::lmFanSensorsEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),lmFanSensorsDevice FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " RPM",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e1f24f45-ea20-4b3b-912a-b19963eb44ac",
+						"type": "scale",
+						"hex": "#74D495",
+						"name": "Atlantis",
+						"value": "0"
+					},
+					{
+						"id": "04d8a277-2e4a-4486-bcf9-dc3c5345761b",
+						"type": "scale",
+						"hex": "#3F3FBA",
+						"name": "Atlantis",
+						"value": "0"
+					},
+					{
+						"id": "7fe78170-9ca8-45c7-bda9-fb13d1688a67",
+						"type": "scale",
+						"hex": "#FF4D9E",
+						"name": "Atlantis",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/27/cells/2f321df6-51fe-4876-a8aa-642f69d097ae"
+				}
+			},
+			{
+				"i": "70d679de-5467-45d4-875a-8a6867e29b73",
+				"x": 6,
+				"y": 0,
+				"w": 6,
+				"h": 3,
+				"name": ":function: Temperature - :host: - all temperature sensors",
+				"queries": [
+					{
+						"query": "SELECT mean(\"lmTempSensorsValue\") / 1000 AS \"temperature\" FROM \"snmp\"..\"LM-SENSORS-MIB::lmTempSensorsEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),lmTempSensorsDevice FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"lmTempSensorsValue\") / 1000 AS \"temperature\" FROM \"snmp\"..\"LM-SENSORS-MIB::lmTempSensorsEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),lmTempSensorsDevice FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "C",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e1f24f45-ea20-4b3b-912a-b19963eb44ac",
+						"type": "scale",
+						"hex": "#74D495",
+						"name": "Atlantis",
+						"value": "0"
+					},
+					{
+						"id": "04d8a277-2e4a-4486-bcf9-dc3c5345761b",
+						"type": "scale",
+						"hex": "#3F3FBA",
+						"name": "Atlantis",
+						"value": "0"
+					},
+					{
+						"id": "7fe78170-9ca8-45c7-bda9-fb13d1688a67",
+						"type": "scale",
+						"hex": "#FF4D9E",
+						"name": "Atlantis",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/27/cells/70d679de-5467-45d4-875a-8a6867e29b73"
+				}
+			},
+			{
+				"i": "c0b36536-de44-4f26-8220-b009ba113060",
+				"x": 0,
+				"y": 3,
+				"w": 6,
+				"h": 3,
+				"name": ":function: Fan Speed - :host: - :fan:",
+				"queries": [
+					{
+						"query": "SELECT :function:(\"lmFanSensorsValue\") AS \"voltage\" FROM \"snmp\"..\"LM-SENSORS-MIB::lmFanSensorsEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"lmFanSensorsDevice\"=':fan:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT :function:(\"lmFanSensorsValue\") AS \"voltage\" FROM \"snmp\"..\"LM-SENSORS-MIB::lmFanSensorsEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"lmFanSensorsDevice\"=':fan:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " RPM",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e1f24f45-ea20-4b3b-912a-b19963eb44ac",
+						"type": "scale",
+						"hex": "#74D495",
+						"name": "Atlantis",
+						"value": "0"
+					},
+					{
+						"id": "04d8a277-2e4a-4486-bcf9-dc3c5345761b",
+						"type": "scale",
+						"hex": "#3F3FBA",
+						"name": "Atlantis",
+						"value": "0"
+					},
+					{
+						"id": "7fe78170-9ca8-45c7-bda9-fb13d1688a67",
+						"type": "scale",
+						"hex": "#FF4D9E",
+						"name": "Atlantis",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/27/cells/c0b36536-de44-4f26-8220-b009ba113060"
+				}
+			},
+			{
+				"i": "e55360cb-3fe7-4570-bc22-b6002c1c6af4",
+				"x": 0,
+				"y": 6,
+				"w": 6,
+				"h": 3,
+				"name": ":function: Voltage - :host: - :voltage:",
+				"queries": [
+					{
+						"query": "SELECT :function:(\"lmVoltSensorsValue\") / 1000 AS \"voltage\" FROM \"snmp\"..\"LM-SENSORS-MIB::lmVoltSensorsEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"lmVoltSensorsDevice\"=':voltage:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT :function:(\"lmVoltSensorsValue\") / 1000 AS \"voltage\" FROM \"snmp\"..\"LM-SENSORS-MIB::lmVoltSensorsEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"lmVoltSensorsDevice\"=':voltage:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " V",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e1f24f45-ea20-4b3b-912a-b19963eb44ac",
+						"type": "scale",
+						"hex": "#74D495",
+						"name": "Atlantis",
+						"value": "0"
+					},
+					{
+						"id": "04d8a277-2e4a-4486-bcf9-dc3c5345761b",
+						"type": "scale",
+						"hex": "#3F3FBA",
+						"name": "Atlantis",
+						"value": "0"
+					},
+					{
+						"id": "7fe78170-9ca8-45c7-bda9-fb13d1688a67",
+						"type": "scale",
+						"hex": "#FF4D9E",
+						"name": "Atlantis",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/27/cells/e55360cb-3fe7-4570-bc22-b6002c1c6af4"
+				}
+			},
+			{
+				"i": "ff48c5a0-8ac6-4da9-afba-f4f60f492b5d",
+				"x": 0,
+				"y": 0,
+				"w": 6,
+				"h": 3,
+				"name": ":function: Temperature - :host: - :temperature:",
+				"queries": [
+					{
+						"query": "SELECT :function:(\"lmTempSensorsValue\") / 1000 AS \"temperature\" FROM \"snmp\"..\"LM-SENSORS-MIB::lmTempSensorsEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"lmTempSensorsDevice\"=':temperature:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT :function:(\"lmTempSensorsValue\") / 1000 AS \"temperature\" FROM \"snmp\"..\"LM-SENSORS-MIB::lmTempSensorsEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"lmTempSensorsDevice\"=':temperature:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "C",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e1f24f45-ea20-4b3b-912a-b19963eb44ac",
+						"type": "scale",
+						"hex": "#74D495",
+						"name": "Atlantis",
+						"value": "0"
+					},
+					{
+						"id": "04d8a277-2e4a-4486-bcf9-dc3c5345761b",
+						"type": "scale",
+						"hex": "#3F3FBA",
+						"name": "Atlantis",
+						"value": "0"
+					},
+					{
+						"id": "7fe78170-9ca8-45c7-bda9-fb13d1688a67",
+						"type": "scale",
+						"hex": "#FF4D9E",
+						"name": "Atlantis",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/27/cells/ff48c5a0-8ac6-4da9-afba-f4f60f492b5d"
+				}
+			},
+			{
+				"i": "01e3de10-e8d7-4a5f-bcb6-4fdf443fc5e8",
+				"x": 6,
+				"y": 6,
+				"w": 6,
+				"h": 3,
+				"name": ":function: Voltage - :host: - all voltages",
+				"queries": [
+					{
+						"query": "SELECT :function:(\"lmVoltSensorsValue\") / 1000 AS \"voltage\" FROM \"snmp\"..\"LM-SENSORS-MIB::lmVoltSensorsEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),lmVoltSensorsDevice FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT :function:(\"lmVoltSensorsValue\") / 1000 AS \"voltage\" FROM \"snmp\"..\"LM-SENSORS-MIB::lmVoltSensorsEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),lmVoltSensorsDevice FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " V",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e1f24f45-ea20-4b3b-912a-b19963eb44ac",
+						"type": "scale",
+						"hex": "#74D495",
+						"name": "Atlantis",
+						"value": "0"
+					},
+					{
+						"id": "04d8a277-2e4a-4486-bcf9-dc3c5345761b",
+						"type": "scale",
+						"hex": "#3F3FBA",
+						"name": "Atlantis",
+						"value": "0"
+					},
+					{
+						"id": "7fe78170-9ca8-45c7-bda9-fb13d1688a67",
+						"type": "scale",
+						"hex": "#FF4D9E",
+						"name": "Atlantis",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/27/cells/01e3de10-e8d7-4a5f-bcb6-4fdf443fc5e8"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":host:",
+				"values": [
+					{
+						"value": "knode1",
+						"type": "tagValue",
+						"selected": true
+					}
+				],
+				"id": "89c461fb-0668-4e0a-8ebf-cf2b354b15ec",
+				"type": "tagValues",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON :database: FROM :measurement: WITH KEY=:tagKey:",
+					"db": "snmp",
+					"measurement": "LM-SENSORS-MIB::lmTempSensorsEntry",
+					"tagKey": "host",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/27/templates/89c461fb-0668-4e0a-8ebf-cf2b354b15ec"
+				}
+			},
+			{
+				"tempVar": ":temperature:",
+				"values": [
+					{
+						"value": "Core 0",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "3ac17c9e-804a-4947-bdbd-5c379216f4b7",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"snmp\" FROM \"LM-SENSORS-MIB::lmTempSensorsEntry\" WITH KEY=\"lmTempSensorsDevice\" WHERE \"host\"=:host:",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/27/templates/3ac17c9e-804a-4947-bdbd-5c379216f4b7"
+				}
+			},
+			{
+				"tempVar": ":fan:",
+				"values": [
+					{
+						"value": "fan1",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "415af202-8bbc-4d5c-b038-0ab78cc7f16d",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"snmp\" FROM \"LM-SENSORS-MIB::lmFanSensorsEntry\" WITH KEY=\"lmFanSensorsDevice\" WHERE \"host\"=:host:",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/27/templates/415af202-8bbc-4d5c-b038-0ab78cc7f16d"
+				}
+			},
+			{
+				"tempVar": ":voltage:",
+				"values": [
+					{
+						"value": "Vcore",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "c33d312e-0738-4be7-a82c-3f0fba114183",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"snmp\" FROM \"LM-SENSORS-MIB::lmVoltSensorsEntry\" WITH KEY=\"lmVoltSensorsDevice\" WHERE \"host\"=:host:",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/27/templates/c33d312e-0738-4be7-a82c-3f0fba114183"
+				}
+			},
+			{
+				"tempVar": ":function:",
+				"values": [
+					{
+						"value": "mean",
+						"type": "csv",
+						"selected": true
+					},
+					{
+						"value": "min",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "max",
+						"type": "csv",
+						"selected": false
+					}
+				],
+				"id": "1467c00f-43e6-4647-bc8f-92d95e77efc1",
+				"type": "csv",
+				"label": "",
+				"query": {
+					"influxql": "",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/27/templates/1467c00f-43e6-4647-bc8f-92d95e77efc1"
+				}
+			}
+		],
+		"name": "SNMP: LM Sensors",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/27",
+			"cells": "/chronograf/v1/dashboards/27/cells",
+			"templates": "/chronograf/v1/dashboards/27/templates"
+		}
+	}
+}

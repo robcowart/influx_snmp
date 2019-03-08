@@ -1,0 +1,65 @@
+#--------------------------------------------------------------------------------------------------
+# MIT License
+# Copyright 2019 Robert Cowart
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+# associated documentation files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge, publish, distribute,
+# sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or
+# substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+# NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+# DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+#--------------------------------------------------------------------------------------------------
+
+# The following is an example of how to use docker-compose to pollers for three devices, a Ubiquiti
+# EdgeRouter, a Juniper EX-series switch, and an EnGenius Wi-Fi Access Point.
+# Note how and external .env file is used to provide environment variables that apply to all three
+# pollers.
+
+version: '3'
+services:
+  snmp-rt1:
+    image: robcowart/telegraf-snmp:0.0.1_ubiquiti_edgeos_base
+    container_name: snmp-rt1
+    restart: unless-stopped
+    hostname: snmp-rt1
+    network_mode: host
+    env_file:
+      - influx_snmp.env
+    environment:
+      TELEGRAF_SNMP_AGENT: "192.0.2.1:161"
+      TELEGRAF_SNMP_AGENT_TYPE: ubiquiti_edgeos
+      TELEGRAF_SNMP_HOST: rt1
+
+  snmp-sw1:
+    image: robcowart/telegraf-snmp:0.0.1_juniper_ex
+    container_name: snmp-sw1
+    restart: unless-stopped
+    hostname: snmp-sw1
+    network_mode: host
+    env_file:
+      - influx_snmp.env
+    environment:
+      TELEGRAF_SNMP_AGENT: "192.0.2.2:161"
+      TELEGRAF_SNMP_AGENT_TYPE: juniper_ex
+      TELEGRAF_SNMP_HOST: rt2
+
+  snmp-wlan1:
+    image: robcowart/telegraf-snmp:0.0.1_engenius_wifi
+    container_name: snmp-wlan1
+    restart: unless-stopped
+    hostname: snmp-wlan1
+    network_mode: host
+    env_file:
+      - influx_snmp.env
+    environment:
+      TELEGRAF_SNMP_AGENT: "192.0.2.5:161"
+      TELEGRAF_SNMP_AGENT_TYPE: engenius_wifi
+      TELEGRAF_SNMP_HOST: wlan1

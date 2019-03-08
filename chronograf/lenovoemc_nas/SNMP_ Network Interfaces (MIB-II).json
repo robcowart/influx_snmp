@@ -1,0 +1,1367 @@
+{
+	"meta": {
+		"chronografVersion": "1.7.8",
+		"sources": {
+			"0": {
+				"name": "http://192.168.9.11:8086",
+				"link": "/chronograf/v1/sources/0"
+			}
+		}
+	},
+	"dashboard": {
+		"id": 22,
+		"cells": [
+			{
+				"i": "b3e34eb3-a289-4999-91df-462322f70a6c",
+				"x": 6,
+				"y": 0,
+				"w": 2,
+				"h": 1,
+				"name": "Total Errors - :host: - :interface:",
+				"queries": [
+					{
+						"query": "SELECT (last(\"ifInErrors\") - first(\"ifInErrors\")) + (last(\"ifOutErrors\") - first(\"ifOutErrors\")) FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT (last(\"ifInErrors\") - first(\"ifInErrors\")) + (last(\"ifOutErrors\") - first(\"ifOutErrors\")) FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/22/cells/b3e34eb3-a289-4999-91df-462322f70a6c"
+				}
+			},
+			{
+				"i": "d4e43329-c9e2-4a01-93c1-7d222c291c94",
+				"x": 4,
+				"y": 0,
+				"w": 2,
+				"h": 1,
+				"name": "Total Discards - :host: - :interface:",
+				"queries": [
+					{
+						"query": "SELECT (last(\"ifInDiscards\") - first(\"ifInDiscards\")) + (last(\"ifOutDiscards\") - first(\"ifOutDiscards\")) FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT (last(\"ifInDiscards\") - first(\"ifInDiscards\")) + (last(\"ifOutDiscards\") - first(\"ifOutDiscards\")) FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/22/cells/d4e43329-c9e2-4a01-93c1-7d222c291c94"
+				}
+			},
+			{
+				"i": "7ff1d489-4c59-444b-9c38-d9de4b7da850",
+				"x": 2,
+				"y": 0,
+				"w": 2,
+				"h": 1,
+				"name": "Egress Packet Delivery - :host: - :interface:",
+				"queries": [
+					{
+						"query": "SELECT ((last(\"ifOutUcastPkts\") - first(\"ifOutUcastPkts\")) / ((last(\"ifOutUcastPkts\") - first(\"ifOutUcastPkts\")) + (last(\"ifOutDiscards\") - first(\"ifOutDiscards\")) + (last(\"ifOutErrors\") - first(\"ifOutErrors\")))) * 100 FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT ((last(\"ifOutUcastPkts\") - first(\"ifOutUcastPkts\")) / ((last(\"ifOutUcastPkts\") - first(\"ifOutUcastPkts\")) + (last(\"ifOutDiscards\") - first(\"ifOutDiscards\")) + (last(\"ifOutErrors\") - first(\"ifOutErrors\")))) * 100 FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "%",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/22/cells/7ff1d489-4c59-444b-9c38-d9de4b7da850"
+				}
+			},
+			{
+				"i": "2bd3e6af-7c25-4597-8dea-ebfb0f9dd6c8",
+				"x": 0,
+				"y": 0,
+				"w": 2,
+				"h": 1,
+				"name": "Ingress Packet Delivery - :host: - :interface:",
+				"queries": [
+					{
+						"query": "SELECT ((last(\"ifInUcastPkts\") - first(\"ifInUcastPkts\")) / ((last(\"ifInUcastPkts\") - first(\"ifInUcastPkts\")) + (last(\"ifInDiscards\") - first(\"ifInDiscards\")) + (last(\"ifInErrors\") - first(\"ifInErrors\")) + (last(\"ifInUnknownProtos\") - first(\"ifInUnknownProtos\")))) * 100 FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT ((last(\"ifInUcastPkts\") - first(\"ifInUcastPkts\")) / ((last(\"ifInUcastPkts\") - first(\"ifInUcastPkts\")) + (last(\"ifInDiscards\") - first(\"ifInDiscards\")) + (last(\"ifInErrors\") - first(\"ifInErrors\")) + (last(\"ifInUnknownProtos\") - first(\"ifInUnknownProtos\")))) * 100 FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "%",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/22/cells/2bd3e6af-7c25-4597-8dea-ebfb0f9dd6c8"
+				}
+			},
+			{
+				"i": "1e6cbd85-d4b1-4160-a8d8-b401d1c33499",
+				"x": 6,
+				"y": 7,
+				"w": 6,
+				"h": 3,
+				"name": "Dropped Packet Rate (pkts/s) - :host: - all interfaces",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress dropped pkts/s\", (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress dropped pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),ifName FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress dropped pkts/s\", (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress dropped pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),ifName FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress dropped pkts/s\", (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress dropped pkts/s\" FROM \"snmp\".\"autogen\".\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress dropped pkts/s\", (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress dropped pkts/s\" FROM \"snmp\".\"autogen\".\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " pkts/s",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "668e9add-5174-43d5-9e1f-b391c179f344",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "5ec8edfd-acb7-46da-949a-67757fdae98f",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "7ba78f03-a624-4287-b0bd-0c49afe5848f",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/22/cells/1e6cbd85-d4b1-4160-a8d8-b401d1c33499"
+				}
+			},
+			{
+				"i": "0bc61d32-70ec-4fed-b409-c68f04114f32",
+				"x": 0,
+				"y": 7,
+				"w": 6,
+				"h": 3,
+				"name": "Dropped Packet Rate (pkts/s) - :host: - :interface:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress dropped pkts/s\", (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress dropped pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress dropped pkts/s\", (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress dropped pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress dropped pkts/s\", (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress dropped pkts/s\" FROM \"snmp\".\"autogen\".\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress dropped pkts/s\", (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress dropped pkts/s\" FROM \"snmp\".\"autogen\".\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " pkts/s",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "668e9add-5174-43d5-9e1f-b391c179f344",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "5ec8edfd-acb7-46da-949a-67757fdae98f",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "7ba78f03-a624-4287-b0bd-0c49afe5848f",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/22/cells/0bc61d32-70ec-4fed-b409-c68f04114f32"
+				}
+			},
+			{
+				"i": "44b8ad89-3cfe-44e7-a064-7b01a0fbd4c1",
+				"x": 6,
+				"y": 4,
+				"w": 6,
+				"h": 3,
+				"name": "Network Traffic Rate (pkts/s) - :host: - all interfaces",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"ifInUcastPkts\"),1s) + non_negative_derivative(last(\"ifInBroadcastPkts\"),1s) + non_negative_derivative(last(\"ifInMulticastPkts\"),1s) + non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress pkts/s\", (non_negative_derivative(last(\"ifOutUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutBroadcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutMulticastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),ifName FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"ifInUcastPkts\"),1s) + non_negative_derivative(last(\"ifInBroadcastPkts\"),1s) + non_negative_derivative(last(\"ifInMulticastPkts\"),1s) + non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress pkts/s\", (non_negative_derivative(last(\"ifOutUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutBroadcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutMulticastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),ifName FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT non_negative_derivative(last(\"ifInUcastPkts\"),1s) + non_negative_derivative(last(\"ifInNUcastPkts\"),1s) + non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress pkts/s\", (non_negative_derivative(last(\"ifOutUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutNUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress pkts/s\" FROM \"snmp\".\"autogen\".\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"ifInUcastPkts\"),1s) + non_negative_derivative(last(\"ifInNUcastPkts\"),1s) + non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress pkts/s\", (non_negative_derivative(last(\"ifOutUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutNUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress pkts/s\" FROM \"snmp\".\"autogen\".\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " pkts/s",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "668e9add-5174-43d5-9e1f-b391c179f344",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "5ec8edfd-acb7-46da-949a-67757fdae98f",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "7ba78f03-a624-4287-b0bd-0c49afe5848f",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/22/cells/44b8ad89-3cfe-44e7-a064-7b01a0fbd4c1"
+				}
+			},
+			{
+				"i": "a295de4a-5208-473c-bd80-e0bb8f07499b",
+				"x": 0,
+				"y": 4,
+				"w": 6,
+				"h": 3,
+				"name": "Network Traffic Rate (pkts/s) - :host: - :interface:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"ifInUcastPkts\"),1s) + non_negative_derivative(last(\"ifInBroadcastPkts\"),1s) + non_negative_derivative(last(\"ifInMulticastPkts\"),1s) + non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress pkts/s\", (non_negative_derivative(last(\"ifOutUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutBroadcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutMulticastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"ifInUcastPkts\"),1s) + non_negative_derivative(last(\"ifInBroadcastPkts\"),1s) + non_negative_derivative(last(\"ifInMulticastPkts\"),1s) + non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress pkts/s\", (non_negative_derivative(last(\"ifOutUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutBroadcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutMulticastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT non_negative_derivative(last(\"ifInUcastPkts\"),1s) + non_negative_derivative(last(\"ifInNUcastPkts\"),1s) + non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress pkts/s\", (non_negative_derivative(last(\"ifOutUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutNUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress pkts/s\" FROM \"snmp\".\"autogen\".\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"ifInUcastPkts\"),1s) + non_negative_derivative(last(\"ifInNUcastPkts\"),1s) + non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress pkts/s\", (non_negative_derivative(last(\"ifOutUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutNUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress pkts/s\" FROM \"snmp\".\"autogen\".\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " pkts/s",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "668e9add-5174-43d5-9e1f-b391c179f344",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "5ec8edfd-acb7-46da-949a-67757fdae98f",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "7ba78f03-a624-4287-b0bd-0c49afe5848f",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/22/cells/a295de4a-5208-473c-bd80-e0bb8f07499b"
+				}
+			},
+			{
+				"i": "39a13176-8945-4216-b046-5f6044d0ef31",
+				"x": 6,
+				"y": 1,
+				"w": 6,
+				"h": 3,
+				"name": "Network Traffic Rate (bits/s) - :host: - all interfaces",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"ifInOctets\"),1s) * 8 AS \"ingress bits/s\", non_negative_derivative(last(\"ifOutOctets\"),1s) * -8 AS \"egress bits/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),ifName FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"ifInOctets\"),1s) * 8 AS \"ingress bits/s\", non_negative_derivative(last(\"ifOutOctets\"),1s) * -8 AS \"egress bits/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),ifName FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " bits/s",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "668e9add-5174-43d5-9e1f-b391c179f344",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "5ec8edfd-acb7-46da-949a-67757fdae98f",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "7ba78f03-a624-4287-b0bd-0c49afe5848f",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/22/cells/39a13176-8945-4216-b046-5f6044d0ef31"
+				}
+			},
+			{
+				"i": "341929ca-ab25-404d-a1a6-fa952678e41c",
+				"x": 0,
+				"y": 1,
+				"w": 6,
+				"h": 3,
+				"name": "Network Traffic Rate (bits/s) - :host: - :interface:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"ifInOctets\"),1s) * 8 AS \"ingress bits/s\", non_negative_derivative(last(\"ifOutOctets\"),1s) * -8 AS \"egress bits/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"ifInOctets\"),1s) * 8 AS \"ingress bits/s\", non_negative_derivative(last(\"ifOutOctets\"),1s) * -8 AS \"egress bits/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " bits/s",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "668e9add-5174-43d5-9e1f-b391c179f344",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "5ec8edfd-acb7-46da-949a-67757fdae98f",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "7ba78f03-a624-4287-b0bd-0c49afe5848f",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/22/cells/341929ca-ab25-404d-a1a6-fa952678e41c"
+				}
+			},
+			{
+				"i": "dbe0ff41-c163-48cc-8798-df7d31da0ef6",
+				"x": 8,
+				"y": 0,
+				"w": 2,
+				"h": 1,
+				"name": "Total Unknown Protocols - :host: - :interface:",
+				"queries": [
+					{
+						"query": "SELECT last(\"ifInUnknownProtos\") - first(\"ifInUnknownProtos\") FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"ifInUnknownProtos\") - first(\"ifInUnknownProtos\") FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/22/cells/dbe0ff41-c163-48cc-8798-df7d31da0ef6"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":host:",
+				"values": [
+					{
+						"value": "rt1",
+						"type": "tagValue",
+						"selected": true
+					}
+				],
+				"id": "c959c62c-9da8-428a-97fc-6450c94653f9",
+				"type": "tagValues",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON :database: FROM :measurement: WITH KEY=:tagKey:",
+					"db": "snmp",
+					"measurement": "IF-MIB::ifEntry",
+					"tagKey": "host",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/22/templates/c959c62c-9da8-428a-97fc-6450c94653f9"
+				}
+			},
+			{
+				"tempVar": ":interface:",
+				"values": [
+					{
+						"value": "eth0",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "2b2a7323-6e68-4767-abfd-20a442737010",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"snmp\" FROM \"IF-MIB::ifEntry\" WITH KEY=\"ifName\" WHERE \"host\"=:host:",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/22/templates/2b2a7323-6e68-4767-abfd-20a442737010"
+				}
+			}
+		],
+		"name": "SNMP: Network Interfaces (MIB-II)",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/22",
+			"cells": "/chronograf/v1/dashboards/22/cells",
+			"templates": "/chronograf/v1/dashboards/22/templates"
+		}
+	}
+}
