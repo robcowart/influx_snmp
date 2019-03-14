@@ -111,24 +111,24 @@
 				"type": "line-stacked",
 				"colors": [
 					{
-						"id": "be9f0ca8-ad66-44fb-8b82-7e911a011894",
+						"id": "0f5eb5f5-8b9f-4556-932d-8dde1290db18",
 						"type": "scale",
-						"hex": "#74D495",
-						"name": "Atlantis",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
 						"value": "0"
 					},
 					{
-						"id": "46a6f7a8-059c-493e-8405-89fac2aa728d",
+						"id": "8f599cc9-cca2-42a1-b8c7-1053b1324f38",
 						"type": "scale",
-						"hex": "#3F3FBA",
-						"name": "Atlantis",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
 						"value": "0"
 					},
 					{
-						"id": "aca02926-ea5f-423a-8074-5ea5684f6bf8",
+						"id": "6c589a52-d4af-4e1e-a1db-b8375fe91386",
 						"type": "scale",
-						"hex": "#FF4D9E",
-						"name": "Atlantis",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
 						"value": "0"
 					}
 				],
@@ -249,24 +249,24 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "be9f0ca8-ad66-44fb-8b82-7e911a011894",
+						"id": "0f5eb5f5-8b9f-4556-932d-8dde1290db18",
 						"type": "scale",
-						"hex": "#74D495",
-						"name": "Atlantis",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
 						"value": "0"
 					},
 					{
-						"id": "46a6f7a8-059c-493e-8405-89fac2aa728d",
+						"id": "8f599cc9-cca2-42a1-b8c7-1053b1324f38",
 						"type": "scale",
-						"hex": "#3F3FBA",
-						"name": "Atlantis",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
 						"value": "0"
 					},
 					{
-						"id": "aca02926-ea5f-423a-8074-5ea5684f6bf8",
+						"id": "6c589a52-d4af-4e1e-a1db-b8375fe91386",
 						"type": "scale",
-						"hex": "#FF4D9E",
-						"name": "Atlantis",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
 						"value": "0"
 					}
 				],
@@ -411,24 +411,24 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "be9f0ca8-ad66-44fb-8b82-7e911a011894",
+						"id": "0f5eb5f5-8b9f-4556-932d-8dde1290db18",
 						"type": "scale",
-						"hex": "#74D495",
-						"name": "Atlantis",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
 						"value": "0"
 					},
 					{
-						"id": "46a6f7a8-059c-493e-8405-89fac2aa728d",
+						"id": "8f599cc9-cca2-42a1-b8c7-1053b1324f38",
 						"type": "scale",
-						"hex": "#3F3FBA",
-						"name": "Atlantis",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
 						"value": "0"
 					},
 					{
-						"id": "aca02926-ea5f-423a-8074-5ea5684f6bf8",
+						"id": "6c589a52-d4af-4e1e-a1db-b8375fe91386",
 						"type": "scale",
-						"hex": "#FF4D9E",
-						"name": "Atlantis",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
 						"value": "0"
 					}
 				],
@@ -1326,24 +1326,24 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "be9f0ca8-ad66-44fb-8b82-7e911a011894",
+						"id": "0f5eb5f5-8b9f-4556-932d-8dde1290db18",
 						"type": "scale",
-						"hex": "#74D495",
-						"name": "Atlantis",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
 						"value": "0"
 					},
 					{
-						"id": "46a6f7a8-059c-493e-8405-89fac2aa728d",
+						"id": "8f599cc9-cca2-42a1-b8c7-1053b1324f38",
 						"type": "scale",
-						"hex": "#3F3FBA",
-						"name": "Atlantis",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
 						"value": "0"
 					},
 					{
-						"id": "aca02926-ea5f-423a-8074-5ea5684f6bf8",
+						"id": "6c589a52-d4af-4e1e-a1db-b8375fe91386",
 						"type": "scale",
-						"hex": "#FF4D9E",
-						"name": "Atlantis",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
 						"value": "0"
 					}
 				],

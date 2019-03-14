@@ -32,3 +32,7 @@
 
 ./vyos_base.build.sh
 ./vyos_ospf.build.sh
+
+./juniper_junos_base.build.sh
+./juniper_junos_ex.build.sh
+./juniper_junos_srx.build.sh
