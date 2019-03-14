@@ -1,0 +1,772 @@
+{
+	"meta": {
+		"chronografVersion": "1.7.8",
+		"sources": {
+			"0": {
+				"name": "http://192.168.9.11:8086",
+				"link": "/chronograf/v1/sources/0"
+			}
+		}
+	},
+	"dashboard": {
+		"id": 30,
+		"cells": [
+			{
+				"i": "b48f51be-3d6c-4286-85d8-cbc9b8690ec4",
+				"x": 0,
+				"y": 6,
+				"w": 6,
+				"h": 3,
+				"name": "IO Load: :host: - :device:",
+				"queries": [
+					{
+						"query": "SELECT mean(\"diskIOLA1\") AS \"1-min Load\", mean(\"diskIOLA5\") AS \"5-min Load\", mean(\"diskIOLA15\") AS \"15-min Load\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"diskIODevice\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"diskIOLA1\") AS \"1-min Load\", mean(\"diskIOLA5\") AS \"5-min Load\", mean(\"diskIOLA15\") AS \"15-min Load\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"diskIODevice\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "%",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "9bd3bc2b-f907-45f4-aee5-a7e1b3870ef8",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "958918a6-53ec-4235-909c-f1fd4b2824a3",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "45d44513-bc02-430d-81a9-d863d41854b2",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/30/cells/b48f51be-3d6c-4286-85d8-cbc9b8690ec4"
+				}
+			},
+			{
+				"i": "82ffce53-3e1e-4797-8664-6bbcb746d91e",
+				"x": 6,
+				"y": 3,
+				"w": 6,
+				"h": 3,
+				"name": "IO Volume: :host: - all storage devices",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"diskIONRead\"),1s) AS \"Bytes Read\", non_negative_derivative(last(\"diskIONWritten\"),1s) * -1 AS \"Bytes Written\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),diskIODevice FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"diskIONRead\"),1s) AS \"Bytes Read\", non_negative_derivative(last(\"diskIONWritten\"),1s) * -1 AS \"Bytes Written\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),diskIODevice FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "/s",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "9bd3bc2b-f907-45f4-aee5-a7e1b3870ef8",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "958918a6-53ec-4235-909c-f1fd4b2824a3",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "45d44513-bc02-430d-81a9-d863d41854b2",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/30/cells/82ffce53-3e1e-4797-8664-6bbcb746d91e"
+				}
+			},
+			{
+				"i": "9be8b3f5-b381-4ab3-8596-fefb6182b753",
+				"x": 0,
+				"y": 3,
+				"w": 6,
+				"h": 3,
+				"name": "IO Volume: :host: - :device:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"diskIONRead\"),1s) AS \"Bytes Read\", non_negative_derivative(last(\"diskIONWritten\"),1s) * -1 AS \"Bytes Written\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"diskIODevice\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"diskIONRead\"),1s) AS \"Bytes Read\", non_negative_derivative(last(\"diskIONWritten\"),1s) * -1 AS \"Bytes Written\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"diskIODevice\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "/s",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "9bd3bc2b-f907-45f4-aee5-a7e1b3870ef8",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "958918a6-53ec-4235-909c-f1fd4b2824a3",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "45d44513-bc02-430d-81a9-d863d41854b2",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/30/cells/9be8b3f5-b381-4ab3-8596-fefb6182b753"
+				}
+			},
+			{
+				"i": "5c35289f-792b-4f65-86ec-1c8d76c6ab35",
+				"x": 6,
+				"y": 0,
+				"w": 6,
+				"h": 3,
+				"name": "IOPS: :host: - all storage devices",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"diskIOReads\"),1s) AS \"Read IOPS\", non_negative_derivative(last(\"diskIOWrites\"),1s) * -1 AS \"Write IOPS\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),diskIODevice FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"diskIOReads\"),1s) AS \"Read IOPS\", non_negative_derivative(last(\"diskIOWrites\"),1s) * -1 AS \"Write IOPS\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),diskIODevice FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "9bd3bc2b-f907-45f4-aee5-a7e1b3870ef8",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "958918a6-53ec-4235-909c-f1fd4b2824a3",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "45d44513-bc02-430d-81a9-d863d41854b2",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/30/cells/5c35289f-792b-4f65-86ec-1c8d76c6ab35"
+				}
+			},
+			{
+				"i": "e2987b6e-04d4-498b-a7ec-992e089bdee3",
+				"x": 0,
+				"y": 0,
+				"w": 6,
+				"h": 3,
+				"name": "IOPS: :host: - :device:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"diskIOReads\"),1s) AS \"Read IOPS\", non_negative_derivative(last(\"diskIOWrites\"),1s) * -1 AS \"Write IOPS\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"diskIODevice\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"diskIOReads\"),1s) AS \"Read IOPS\", non_negative_derivative(last(\"diskIOWrites\"),1s) * -1 AS \"Write IOPS\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"diskIODevice\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "9bd3bc2b-f907-45f4-aee5-a7e1b3870ef8",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "958918a6-53ec-4235-909c-f1fd4b2824a3",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "45d44513-bc02-430d-81a9-d863d41854b2",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/30/cells/e2987b6e-04d4-498b-a7ec-992e089bdee3"
+				}
+			},
+			{
+				"i": "34e04b71-c2ce-4d68-a663-f79b66e26bd2",
+				"x": 6,
+				"y": 6,
+				"w": 6,
+				"h": 3,
+				"name": "IO Load: :host: - all storage devices",
+				"queries": [
+					{
+						"query": "SELECT mean(\"diskIOLA1\") AS \"1-min Load\", mean(\"diskIOLA5\") AS \"5-min Load\", mean(\"diskIOLA15\") AS \"15-min Load\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),diskIODevice FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"diskIOLA1\") AS \"1-min Load\", mean(\"diskIOLA5\") AS \"5-min Load\", mean(\"diskIOLA15\") AS \"15-min Load\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),diskIODevice FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "%",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "9bd3bc2b-f907-45f4-aee5-a7e1b3870ef8",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "958918a6-53ec-4235-909c-f1fd4b2824a3",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "45d44513-bc02-430d-81a9-d863d41854b2",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/30/cells/34e04b71-c2ce-4d68-a663-f79b66e26bd2"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":host:",
+				"values": [
+					{
+						"value": "lab9",
+						"type": "tagValue",
+						"selected": true
+					}
+				],
+				"id": "9334a763-395a-46d8-a632-eb1f6bb0e65e",
+				"type": "tagValues",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON :database: FROM :measurement: WITH KEY=:tagKey:",
+					"db": "snmp",
+					"measurement": "UCD-DISKIO-MIB::diskIOEntry",
+					"tagKey": "host",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/30/templates/9334a763-395a-46d8-a632-eb1f6bb0e65e"
+				}
+			},
+			{
+				"tempVar": ":device:",
+				"values": [
+					{
+						"value": "sda",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "759c0900-a744-4b5d-b590-52ba0f1c039d",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"snmp\" FROM \"UCD-DISKIO-MIB::diskIOEntry\" WITH KEY=\"diskIODevice\" WHERE \"host\"=:host:",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/30/templates/759c0900-a744-4b5d-b590-52ba0f1c039d"
+				}
+			}
+		],
+		"name": "SNMP: NET-SNMP - Disk IO",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/30",
+			"cells": "/chronograf/v1/dashboards/30/cells",
+			"templates": "/chronograf/v1/dashboards/30/templates"
+		}
+	}
+}

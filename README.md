@@ -1,53 +1,91 @@
 # SNMP Data Collection and Analytics with the TICK Stack
-`influx_snmp` provides a solution for SNMP data collection and analytics using the InfluxData's TICK Stack - Telegraf, InfluxDB, Chronograf and Kapacitor.
+`influx_snmp` provides a solution for SNMP data collection and analytics using InfluxData's TICK Stack - Telegraf, InfluxDB, Chronograf and Kapacitor.
 
-# The Cookbook
-The `cookbook` directory provides configuration files for Telegraf that simplify its use for SNMP data collection.
+![influx_snmp](https://user-images.githubusercontent.com/10326954/54396081-11e73980-46b2-11e9-894c-0ca229ad3d8b.png)
 
-## devices
-The `devices` directory contains pre-built SNMP plugin configurations for a variety of SNMP-compatible devices.
+## "Dockerized" Telegraf for SNMP Polling
+To poll a device, a container of the appropriate type is configured and run. docker-compose provides a mechanism to easily configure and start multiple containers for the various devices in your infrastructure. An example `docker-compose.yml` file is provided, including an example of using a environment variable file to set global settings.
 
-## oids
-The files in the `oids` directory contain configuration blocks for a variety of SNMP MIB objects and tables. These configuration blocks can be used to build a device-specific SNMP plugin configuration.
+The containers are available on Docker Hub [HERE](https://hub.docker.com/r/robcowart/telegraf-snmp).
 
-# Configuring Telegraf
-To configure Telegraf for SNMP collection, complete the following steps:
-
-### 1. Setup the configuration directory
-Copy the provided `telegraf` directory to `/etc/telegraf`.
-
-### 2. Set the global polling frequency
-Edit `telegraf/telegraf.conf` to set a global polling frequency: `interval = "60s"`
-
-### 3. Copy the relevant configuration files to telegraf.d
-For each device that you want to poll, copy the relevant plugin configuration file from `cookbook/devices` to `telegraf.d`.
-
-### 4. Add the device hostname to the configuration filename
-It is likely that you will have more than one of a given device type. In this scenario it is recommended that a plugin configuration be setup for each device. To accomplish this each plugin configuration file will need to be uniquely named. To keep things well organized, add the device name to the file name using this convention: `input_juniper_srx.<device_hostname>.toml.conf`. For example: `input_juniper_srx.core-fw-1.toml.conf`
-
-### 5. Edit the configuration file as required.
-* Set the IP address of the device to be polled: `agents = [ "192.0.2.1:161" ]`
-* Optionally configure a device-specific polling frequency: `interval = "60s"`
-* Set the community string or other SNMP credentials: `community = "public"`
-
-#### 5b. Configure the community string globally per device type
-Aternatively, community strings can be configured globally per device type. This is achieved via an environment variable, e.g. `community = "$TELEGRAF_ENGENIUS_WIFI_COMMUNITY"`. A systemd configuration file is provided, `telegraf.service.d/telegraf.conf`, which allows the environment variable values to be easily set.
-
-### 6. Start Telegraf
-Start Telegraf be running the following commands:
+The following is an example `docker-compoase.yml` file, which polls three different device type-specific containers:
 
 ```
-$ systemctl daemon-reload
-$ systemctl start telegraf.service
+version: '3'
+services:
+  snmp-rt1:
+    image: robcowart/telegraf-snmp:0.0.1_ubiquiti_edgeos_base
+    container_name: snmp-rt1
+    restart: unless-stopped
+    hostname: snmp-rt1
+    network_mode: host
+    env_file:
+      - influx_snmp.env
+    environment:
+      TELEGRAF_SNMP_AGENT: "192.0.2.1:161"
+      TELEGRAF_SNMP_AGENT_TYPE: ubiquiti_edgeos
+      TELEGRAF_SNMP_HOST: rt1
+
+  snmp-sw1:
+    image: robcowart/telegraf-snmp:0.0.1_juniper_ex
+    container_name: snmp-sw1
+    restart: unless-stopped
+    hostname: snmp-sw1
+    network_mode: host
+    env_file:
+      - influx_snmp.env
+    environment:
+      TELEGRAF_SNMP_AGENT: "192.0.2.2:161"
+      TELEGRAF_SNMP_AGENT_TYPE: juniper_ex
+      TELEGRAF_SNMP_HOST: rt2
+
+  snmp-wlan1:
+    image: robcowart/telegraf-snmp:0.0.1_engenius_wifi
+    container_name: snmp-wlan1
+    restart: unless-stopped
+    hostname: snmp-wlan1
+    network_mode: host
+    env_file:
+      - influx_snmp.env
+    environment:
+      TELEGRAF_SNMP_AGENT: "192.0.2.5:161"
+      TELEGRAF_SNMP_AGENT_TYPE: engenius_wifi
+      TELEGRAF_SNMP_HOST: wlan1
 ```
 
-To ensure Telegraf is started automatically at system boot, run:
+The external environment variable file `influx_snmp.env` for _global_ settings:
 
 ```
-$ systemctl enable telegraf.service
+# The SNMP query timeout.
+TELEGRAF_SNMP_TIMEOUT=5s
+
+# polling interval.
+TELEGRAF_SNMP_INTERVAL=60s
+
+# SNMPv1/v2c community string
+TELEGRAF_SNMP_COMMUNITY=public
+
+# SNMPv3 credentials
+TELEGRAF_SNMP_SEC_NAME=username
+TELEGRAF_SNMP_AUTH_PROTOCOL=MD5
+TELEGRAF_SNMP_AUTH_PASSWORD=changeme
+TELEGRAF_SNMP_SEC_LEVEL=authNoPriv
+
+# InfluxDB instance, credentials and DB name.
+TELEGRAF_SNMP_INFLUXDB_URL=http://192.168.9.11:8086
+TELEGRAF_SNMP_INFLUXDB_USER=admin
+TELEGRAF_SNMP_INFLUXDB_PASSWD=changeme
+TELEGRAF_SNMP_DATABASE=snmp
 ```
 
-# To-Do
-* Chronograf and/or Grafana Dashboards
+> You can also easily run InfluxDB, Kapacitor, Chronograf and even Grafana in Docker containers. A `docker-compose.yml` file to help you get started is available [HERE](https://github.com/robcowart/docker_compose_cookbook/blob/master/STACKS/influx_oss/docker-compose.yml).
+
+## Building the Docker Containers
+
+This repository includes the configuration and scripts to build containers for each supported device type.
+
+## To-Do
+
+* More Chronograf and/or Grafana Dashboards
 * Kapacitor Alerts
 * Additional device support

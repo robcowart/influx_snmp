@@ -1,0 +1,1412 @@
+{
+	"meta": {
+		"chronografVersion": "1.7.8",
+		"sources": {
+			"0": {
+				"name": "http://192.168.9.11:8086",
+				"link": "/chronograf/v1/sources/0"
+			}
+		}
+	},
+	"dashboard": {
+		"id": 28,
+		"cells": [
+			{
+				"i": "cbba2461-9406-4ed1-9475-fad2f004676b",
+				"x": 6,
+				"y": 3,
+				"w": 6,
+				"h": 3,
+				"name": "Heap & Buffers % (Routing Engine)",
+				"queries": [
+					{
+						"query": "SELECT last(\"jnxOperatingHeap\") AS \"Heap Utilization\", last(\"jnxOperatingBuffer\") AS \"Buffer Utilization\" FROM \"snmp\"..\"JUNIPER-MIB::jnxOperatingEntity\" WHERE time > :dashboardTime: AND \"host\"=':device:' AND \"index\"='9.1.0.0' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "snmp",
+							"measurement": "JUNIPER-MIB::jnxOperatingEntity",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "Heap Utilization",
+									"args": [
+										{
+											"value": "jnxOperatingHeap",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "Buffer Utilization",
+									"args": [
+										{
+											"value": "jnxOperatingBuffer",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":device:"
+								],
+								"index": [
+									"9.1.0.0"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " %",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "0f5eb5f5-8b9f-4556-932d-8dde1290db18",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "8f599cc9-cca2-42a1-b8c7-1053b1324f38",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "6c589a52-d4af-4e1e-a1db-b8375fe91386",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "The selected device does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/28/cells/cbba2461-9406-4ed1-9475-fad2f004676b"
+				}
+			},
+			{
+				"i": "79a966e1-ac4c-48b4-952f-e07ba043d880",
+				"x": 6,
+				"y": 6,
+				"w": 6,
+				"h": 3,
+				"name": "Temperature (Routing Engine)",
+				"queries": [
+					{
+						"query": "SELECT last(\"jnxOperatingTemp\") AS \"Temperature\" FROM \"snmp\"..\"JUNIPER-MIB::jnxOperatingEntity\" WHERE time > :dashboardTime: AND \"host\"=':device:' AND \"index\"='9.1.0.0' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "snmp",
+							"measurement": "JUNIPER-MIB::jnxOperatingEntity",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "Temperature",
+									"args": [
+										{
+											"value": "jnxOperatingTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":device:"
+								],
+								"index": [
+									"9.1.0.0"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " C",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "0f5eb5f5-8b9f-4556-932d-8dde1290db18",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "8f599cc9-cca2-42a1-b8c7-1053b1324f38",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "6c589a52-d4af-4e1e-a1db-b8375fe91386",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "The selected device does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/28/cells/79a966e1-ac4c-48b4-952f-e07ba043d880"
+				}
+			},
+			{
+				"i": "c4f0fea0-8fa4-4faa-a179-2f2c83bc9cb9",
+				"x": 0,
+				"y": 6,
+				"w": 6,
+				"h": 3,
+				"name": "CPU Load % (Routing Engine)",
+				"queries": [
+					{
+						"query": "SELECT last(\"jnxOperating1MinLoadAvg\") AS \"1-min Load\", last(\"jnxOperating5MinLoadAvg\") AS \"5-min Load\", last(\"jnxOperating15MinLoadAvg\") AS \"15-min Load\" FROM \"snmp\"..\"JUNIPER-MIB::jnxOperatingEntity\" WHERE time > :dashboardTime: AND \"host\"=':device:' AND \"index\"='9.1.0.0' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "snmp",
+							"measurement": "JUNIPER-MIB::jnxOperatingEntity",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "1-min Load",
+									"args": [
+										{
+											"value": "jnxOperating1MinLoadAvg",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "5-min Load",
+									"args": [
+										{
+											"value": "jnxOperating5MinLoadAvg",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "15-min Load",
+									"args": [
+										{
+											"value": "jnxOperating15MinLoadAvg",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":device:"
+								],
+								"index": [
+									"9.1.0.0"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " %",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "0f5eb5f5-8b9f-4556-932d-8dde1290db18",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "8f599cc9-cca2-42a1-b8c7-1053b1324f38",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "6c589a52-d4af-4e1e-a1db-b8375fe91386",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "The selected device does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/28/cells/c4f0fea0-8fa4-4faa-a179-2f2c83bc9cb9"
+				}
+			},
+			{
+				"i": "cb38ed31-d35d-4ae3-a315-65bcc0678db3",
+				"x": 2,
+				"y": 0,
+				"w": 2,
+				"h": 3,
+				"name": "CPU 5-min Load % (Routing Engine)",
+				"queries": [
+					{
+						"query": "SELECT last(\"jnxOperating5MinLoadAvg\") AS \"5-min Load\" FROM \"snmp\"..\"JUNIPER-MIB::jnxOperatingEntity\" WHERE time > :dashboardTime: AND \"host\"=':device:' AND \"index\"='9.1.0.0'",
+						"queryConfig": {
+							"database": "snmp",
+							"measurement": "JUNIPER-MIB::jnxOperatingEntity",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "5-min Load",
+									"args": [
+										{
+											"value": "jnxOperating5MinLoadAvg",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":device:"
+								],
+								"index": [
+									"9.1.0.0"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " %",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "gauge",
+				"colors": [
+					{
+						"id": "0",
+						"type": "min",
+						"hex": "#32B08C",
+						"name": "viridian",
+						"value": "0"
+					},
+					{
+						"id": "1",
+						"type": "max",
+						"hex": "#FFD255",
+						"name": "thunder",
+						"value": "100"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "The selected device does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/28/cells/cb38ed31-d35d-4ae3-a315-65bcc0678db3"
+				}
+			},
+			{
+				"i": "096a6ad2-63cb-473f-8344-41ea66d2731c",
+				"x": 10,
+				"y": 0,
+				"w": 2,
+				"h": 3,
+				"name": "Temperature (Routing Engine)",
+				"queries": [
+					{
+						"query": "SELECT last(\"jnxOperatingTemp\") AS \"Temperature\" FROM \"snmp\"..\"JUNIPER-MIB::jnxOperatingEntity\" WHERE time > :dashboardTime: AND \"host\"=':device:' AND \"index\"='9.1.0.0'",
+						"queryConfig": {
+							"database": "snmp",
+							"measurement": "JUNIPER-MIB::jnxOperatingEntity",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "Temperature",
+									"args": [
+										{
+											"value": "jnxOperatingTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":device:"
+								],
+								"index": [
+									"9.1.0.0"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " C",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "gauge",
+				"colors": [
+					{
+						"id": "0",
+						"type": "min",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "0"
+					},
+					{
+						"id": "1",
+						"type": "max",
+						"hex": "#F48D38",
+						"name": "tiger",
+						"value": "90"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "The selected device does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/28/cells/096a6ad2-63cb-473f-8344-41ea66d2731c"
+				}
+			},
+			{
+				"i": "dae2ad2a-ac9d-4527-9c13-621ca4d769cf",
+				"x": 8,
+				"y": 0,
+				"w": 2,
+				"h": 3,
+				"name": "Memory % (Kernel)",
+				"queries": [
+					{
+						"query": "SELECT last(\"jnxBoxKernelMemoryUsedPercent\") AS \"Kernel Memory Utilization\" FROM \"snmp\"..\"JUNIPER-MIB::jnxBoxAnatomy\" WHERE time > :dashboardTime: AND \"host\"=':device:'",
+						"queryConfig": {
+							"database": "snmp",
+							"measurement": "JUNIPER-MIB::jnxBoxAnatomy",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "Kernel Memory Utilization",
+									"args": [
+										{
+											"value": "jnxBoxKernelMemoryUsedPercent",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":device:"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " %",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "gauge",
+				"colors": [
+					{
+						"id": "0",
+						"type": "min",
+						"hex": "#32B08C",
+						"name": "viridian",
+						"value": "0"
+					},
+					{
+						"id": "1",
+						"type": "max",
+						"hex": "#DC4E58",
+						"name": "fire",
+						"value": "100"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "The selected device does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/28/cells/dae2ad2a-ac9d-4527-9c13-621ca4d769cf"
+				}
+			},
+			{
+				"i": "4de79535-84df-446a-81d3-86a3633cfb37",
+				"x": 6,
+				"y": 0,
+				"w": 2,
+				"h": 3,
+				"name": "Buffer % (Routing Engine)",
+				"queries": [
+					{
+						"query": "SELECT last(\"jnxOperatingBuffer\") AS \"Buffer Utilization\" FROM \"snmp\"..\"JUNIPER-MIB::jnxOperatingEntity\" WHERE time > :dashboardTime: AND \"host\"=':device:' AND \"index\"='9.1.0.0'",
+						"queryConfig": {
+							"database": "snmp",
+							"measurement": "JUNIPER-MIB::jnxOperatingEntity",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "Buffer Utilization",
+									"args": [
+										{
+											"value": "jnxOperatingBuffer",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":device:"
+								],
+								"index": [
+									"9.1.0.0"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " %",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "gauge",
+				"colors": [
+					{
+						"id": "0",
+						"type": "min",
+						"hex": "#32B08C",
+						"name": "viridian",
+						"value": "0"
+					},
+					{
+						"id": "1",
+						"type": "max",
+						"hex": "#DC4E58",
+						"name": "fire",
+						"value": "100"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "The selected device does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/28/cells/4de79535-84df-446a-81d3-86a3633cfb37"
+				}
+			},
+			{
+				"i": "dad1e2c3-a58c-4026-bba3-373b5dd6cf43",
+				"x": 4,
+				"y": 0,
+				"w": 2,
+				"h": 3,
+				"name": "Heap % (Routing Engine)",
+				"queries": [
+					{
+						"query": "SELECT last(\"jnxOperatingHeap\") AS \"Heap Utilization\" FROM \"snmp\"..\"JUNIPER-MIB::jnxOperatingEntity\" WHERE time > :dashboardTime: AND \"host\"=':device:' AND \"index\"='9.1.0.0'",
+						"queryConfig": {
+							"database": "snmp",
+							"measurement": "JUNIPER-MIB::jnxOperatingEntity",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "Heap Utilization",
+									"args": [
+										{
+											"value": "jnxOperatingHeap",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":device:"
+								],
+								"index": [
+									"9.1.0.0"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " %",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "gauge",
+				"colors": [
+					{
+						"id": "0",
+						"type": "min",
+						"hex": "#32B08C",
+						"name": "viridian",
+						"value": "0"
+					},
+					{
+						"id": "1",
+						"type": "max",
+						"hex": "#DC4E58",
+						"name": "fire",
+						"value": "100"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "The selected device does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/28/cells/dad1e2c3-a58c-4026-bba3-373b5dd6cf43"
+				}
+			},
+			{
+				"i": "325c728c-8282-44fd-8532-d880438df361",
+				"x": 0,
+				"y": 0,
+				"w": 2,
+				"h": 3,
+				"name": "CPU % (Routing Engine)",
+				"queries": [
+					{
+						"query": "SELECT last(\"jnxOperatingCPU\") AS \"CPU Utilization\" FROM \"snmp\"..\"JUNIPER-MIB::jnxOperatingEntity\" WHERE time > :dashboardTime: AND \"host\"=':device:' AND \"index\"='9.1.0.0'",
+						"queryConfig": {
+							"database": "snmp",
+							"measurement": "JUNIPER-MIB::jnxOperatingEntity",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "CPU Utilization",
+									"args": [
+										{
+											"value": "jnxOperatingCPU",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":device:"
+								],
+								"index": [
+									"9.1.0.0"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " %",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "gauge",
+				"colors": [
+					{
+						"id": "0",
+						"type": "min",
+						"hex": "#32B08C",
+						"name": "viridian",
+						"value": "0"
+					},
+					{
+						"id": "1",
+						"type": "max",
+						"hex": "#DC4E58",
+						"name": "fire",
+						"value": "100"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "The selected device does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/28/cells/325c728c-8282-44fd-8532-d880438df361"
+				}
+			},
+			{
+				"i": "39382086-423c-47c8-acd9-f4e2307c66f6",
+				"x": 0,
+				"y": 3,
+				"w": 6,
+				"h": 3,
+				"name": "CPU % (Routing Engine)",
+				"queries": [
+					{
+						"query": "SELECT last(\"jnxOperatingCPU\") AS \"CPU Utilization\" FROM \"snmp\"..\"JUNIPER-MIB::jnxOperatingEntity\" WHERE time > :dashboardTime: AND \"host\"=':device:' AND \"index\"='9.1.0.0' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "snmp",
+							"measurement": "JUNIPER-MIB::jnxOperatingEntity",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "CPU Utilization",
+									"args": [
+										{
+											"value": "jnxOperatingCPU",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":device:"
+								],
+								"index": [
+									"9.1.0.0"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "%",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "0f5eb5f5-8b9f-4556-932d-8dde1290db18",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "8f599cc9-cca2-42a1-b8c7-1053b1324f38",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "6c589a52-d4af-4e1e-a1db-b8375fe91386",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "The selected device does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/28/cells/39382086-423c-47c8-acd9-f4e2307c66f6"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":device:",
+				"values": [
+					{
+						"value": "fw2",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "6a697408-977b-413a-b16b-86bb7bbb16d3",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"snmp\" WITH KEY=\"host\" WHERE \"agent_type\" =~ /^juniper.*$/",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/28/templates/6a697408-977b-413a-b16b-86bb7bbb16d3"
+				}
+			}
+		],
+		"name": "SNMP: Juniper - Device Health",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/28",
+			"cells": "/chronograf/v1/dashboards/28/cells",
+			"templates": "/chronograf/v1/dashboards/28/templates"
+		}
+	}
+}
