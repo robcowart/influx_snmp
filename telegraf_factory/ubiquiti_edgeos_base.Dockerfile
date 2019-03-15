@@ -67,7 +67,7 @@ COPY ./assets/oids/ietf/UDP-MIB/UDP-MIB_udp.toml.conf ./
 COPY ./assets/oids/net-snmp/UCD-SNMP-MIB/UCD-SNMP-MIB_memory.toml.conf ./
 COPY ./assets/oids/net-snmp/UCD-SNMP-MIB/UCD-SNMP-MIB_laEntry.toml.conf ./
 COPY ./assets/oids/net-snmp/UCD-SNMP-MIB/UCD-SNMP-MIB_systemStats_110514.toml.conf ./
-COPY ./assets/oids/net-snmp/UCD-DISKIO-MIB/UCD-DISKIO-MIB_diskIOEntry.toml.conf ./
+COPY ./assets/oids/net-snmp/UCD-DISKIO-MIB/UCD-DISKIO-MIB_diskIOEntry_HC.toml.conf ./
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD telegraf --config /etc/telegraf/telegraf.conf --config-directory /etc/telegraf/telegraf.d

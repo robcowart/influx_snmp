@@ -18,7 +18,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #--------------------------------------------------------------------------------------------------
 
-FROM robcowart/telegraf-snmp:0.0.1_host_resources
+FROM telegraf:1.10.0-alpine
 
 ARG BUILD_DATE
 
@@ -27,10 +27,10 @@ LABEL org.opencontainers.image.created="$BUILD_DATE" \
       org.opencontainers.image.url="https://hub.docker.com/r/robcowart/telegraf-snmp" \
       org.opencontainers.image.documentation="https://github.com/robcowart/influx_snmp/README.md" \
       org.opencontainers.image.source="https://github.com/robcowart/influx_snmp" \
-      org.opencontainers.image.version="0.0.1_net_snmp" \
+      org.opencontainers.image.version="0.0.1_comware" \
       org.opencontainers.image.vendor="Robert Cowart" \
       org.opencontainers.image.title="telegraf-snmp" \
-      org.opencontainers.image.description="A telegraf container to collect SNMP metrics from NET-SNMP agents on Linux." \
+      org.opencontainers.image.description="A telegraf container to collect SNMP metrics from Comware devices (H3C, Huawei, HPE, 3Com)." \
       org.opencontainers.image.licenses="MIT"
 
 WORKDIR /etc/telegraf
@@ -41,39 +41,31 @@ COPY ./assets/telegraf.d/output_influxdb.toml.conf ./
 COPY ./assets/telegraf.d/processor_20_strings.toml.conf ./
 
 COPY ./assets/oids/ietf/SNMPv2-MIB/SNMPv2-MIB_system.toml.conf ./
-COPY ./assets/oids/ietf/SNMPv2-MIB/SNMPv2-MIB_snmp.toml.conf ./
+##### COPY ./assets/oids/ietf/SNMPv2-MIB/SNMPv2-MIB_snmp.toml.conf ./
 
 COPY ./assets/oids/ietf/IF-MIB/IF-MIB_interfaces.toml.conf ./
-COPY ./assets/oids/ietf/IF-MIB/IF-MIB_ifXEntry_HC.toml.conf ./
+##### COPY ./assets/oids/ietf/IF-MIB/IF-MIB_ifXEntry_HC_minimal.toml.conf ./
 COPY ./assets/oids/ietf/IF-MIB/IF-MIB_ifMIBObjects.toml.conf ./
 
-COPY ./assets/oids/ietf/EtherLike-MIB/EtherLike-MIB_dot3StatsEntry_net_snmp.toml.conf ./
+##### COPY ./assets/oids/ietf/EtherLike-MIB/EtherLike-MIB_dot3StatsEntry_comware.toml.conf ./
+##### COPY ./assets/oids/ietf/EtherLike-MIB/EtherLike-MIB_dot3ControlEntry_minimal.toml.conf ./
+##### COPY ./assets/oids/ietf/EtherLike-MIB/EtherLike-MIB_dot3PauseEntry_minimal.toml.conf ./
 
-COPY ./assets/oids/ietf/IP-MIB/IP-MIB_ip.toml.conf ./
-COPY ./assets/oids/ietf/IP-MIB/IP-MIB_ipTrafficStats.toml.conf ./
-COPY ./assets/oids/ietf/IP-MIB/IP-MIB_ipSystemStatsEntry_HC.toml.conf ./
-COPY ./assets/oids/ietf/IP-MIB/IP-MIB_ipIfStatsEntry_HC.toml.conf ./
+COPY ./assets/oids/ietf/IP-MIB/IP-MIB_ip_comware.toml.conf ./
 COPY ./assets/oids/ietf/IP-MIB/IP-MIB_icmp.toml.conf ./
-COPY ./assets/oids/ietf/IP-MIB/IP-MIB_icmpStatsEntry.toml.conf ./
 
-COPY ./assets/oids/ietf/TCP-MIB/TCP-MIB_tcp.toml.conf ./
+COPY ./assets/oids/ietf/TCP-MIB/TCP-MIB_tcp_minimal.toml.conf ./
 
 COPY ./assets/oids/ietf/UDP-MIB/UDP-MIB_udp.toml.conf ./
 
-COPY ./assets/oids/ietf/HOST-RESOURCES-MIB/HOST-RESOURCES-MIB_hrSystem.toml.conf ./
-COPY ./assets/oids/ietf/HOST-RESOURCES-MIB/HOST-RESOURCES-MIB_hrStorageEntry.toml.conf ./
-COPY ./assets/oids/ietf/HOST-RESOURCES-MIB/HOST-RESOURCES-MIB_hrDeviceEntry.toml.conf ./
-COPY ./assets/oids/ietf/HOST-RESOURCES-MIB/HOST-RESOURCES-MIB_hrProcessorEntry.toml.conf ./
-COPY ./assets/oids/ietf/HOST-RESOURCES-MIB/HOST-RESOURCES-MIB_hrSWRunPerfEntry.toml.conf ./
+##### COPY ./assets/oids/ietf/BRIDGE-MIB/BRIDGE-MIB_dot1dBasePortEntry.toml.conf ./
+##### COPY ./assets/oids/ietf/BRIDGE-MIB/BRIDGE-MIB_dot1dStpPortEntry_minimal.toml.conf ./
 
-COPY ./assets/oids/net-snmp/LM-SENSORS-MIB/LM-SENSORS-MIB_lmTempSensorsEntry.toml.conf ./
-COPY ./assets/oids/net-snmp/LM-SENSORS-MIB/LM-SENSORS-MIB_lmFanSensorsEntry.toml.conf ./
-COPY ./assets/oids/net-snmp/LM-SENSORS-MIB/LM-SENSORS-MIB_lmVoltSensorsEntry.toml.conf ./
-COPY ./assets/oids/net-snmp/LM-SENSORS-MIB/LM-SENSORS-MIB_lmMiscSensorsEntry.toml.conf ./
-COPY ./assets/oids/net-snmp/UCD-SNMP-MIB/UCD-SNMP-MIB_memory.toml.conf ./
-COPY ./assets/oids/net-snmp/UCD-SNMP-MIB/UCD-SNMP-MIB_laEntry.toml.conf ./
-COPY ./assets/oids/net-snmp/UCD-SNMP-MIB/UCD-SNMP-MIB_systemStats_140731.toml.conf ./
-COPY ./assets/oids/net-snmp/UCD-DISKIO-MIB/UCD-DISKIO-MIB_diskIOEntry_HC.toml.conf ./
+COPY ./assets/oids/ietf/Q-BRIDGE-MIB/Q-BRIDGE-MIB_dot1qBase.toml.conf ./
+##### COPY ./assets/oids/ietf/Q-BRIDGE-MIB/Q-BRIDGE-MIB_dot1qPortVlanEntry_minimal.toml.conf ./
+
+COPY ./assets/oids/comware/COMPOSED/comware_base_tables.toml.conf ./
+
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD telegraf --config /etc/telegraf/telegraf.conf --config-directory /etc/telegraf/telegraf.d

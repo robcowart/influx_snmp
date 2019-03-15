@@ -76,7 +76,8 @@ COPY ./assets/oids/juniper/JUNIPER-MIB/JUNIPER-MIB_jnxBoxAnatomy.toml.conf ./
 ##### COPY ./assets/oids/juniper/JUNIPER-VPN-MIB/JUNIPER-VPN-MIB_jnxVpnInfo.toml.conf ./
 #COPY ./assets/oids/juniper/JUNIPER-HOSTRESOURCES-MIB/JUNIPER-HOSTRESOURCES-MIB_jnxHrStorageEntry.toml.conf ./
 
-COPY ./assets/oids/juniper/COMPOSED/base_tables.toml.conf ./
+COPY ./assets/oids/juniper/COMPOSED/junos_base_tables.toml.conf ./
+
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD telegraf --config /etc/telegraf/telegraf.conf --config-directory /etc/telegraf/telegraf.d

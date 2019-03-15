@@ -18,25 +18,4 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #--------------------------------------------------------------------------------------------------
 
-./minimal.build.sh
-./expanded.build.sh
-./host_resources.build.sh
-./net_snmp.build.sh
-
-./comware.build.sh
-
-./engenius_wifi.build.sh
-
-./fortinet_fortigate.build.sh
-
-./juniper_junos_base.build.sh
-./juniper_junos_ex.build.sh
-./juniper_junos_srx.build.sh
-
-./lenovoemc_nas.build.sh
-
-./ubiquiti_edgeos_base.build.sh
-./ubiquiti_edgeos_ospf.build.sh
-
-./vyos_base.build.sh
-./vyos_ospf.build.sh
+docker build --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --squash -f ./fortinet_fortigate.Dockerfile -t robcowart/telegraf-snmp:0.0.1_fortinet_fortigate .
