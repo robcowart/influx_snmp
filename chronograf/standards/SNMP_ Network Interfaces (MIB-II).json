@@ -20,7 +20,7 @@
 				"name": "Total Errors - :host: - :interface:",
 				"queries": [
 					{
-						"query": "SELECT (last(\"ifInErrors\") - first(\"ifInErrors\")) + (last(\"ifOutErrors\") - first(\"ifOutErrors\")) FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+						"query": "SELECT (last(\"ifInErrors\") - first(\"ifInErrors\")) + (last(\"ifOutErrors\") - first(\"ifOutErrors\")) FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"ifName\"=':interface:'",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -32,7 +32,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT (last(\"ifInErrors\") - first(\"ifInErrors\")) + (last(\"ifOutErrors\") - first(\"ifOutErrors\")) FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+							"rawText": "SELECT (last(\"ifInErrors\") - first(\"ifInErrors\")) + (last(\"ifOutErrors\") - first(\"ifOutErrors\")) FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"ifName\"=':interface:'",
 							"range": null,
 							"shifts": null
 						},
@@ -123,7 +123,7 @@
 				"name": "Total Discards - :host: - :interface:",
 				"queries": [
 					{
-						"query": "SELECT (last(\"ifInDiscards\") - first(\"ifInDiscards\")) + (last(\"ifOutDiscards\") - first(\"ifOutDiscards\")) FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+						"query": "SELECT (last(\"ifInDiscards\") - first(\"ifInDiscards\")) + (last(\"ifOutDiscards\") - first(\"ifOutDiscards\")) FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"ifName\"=':interface:'",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -135,7 +135,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT (last(\"ifInDiscards\") - first(\"ifInDiscards\")) + (last(\"ifOutDiscards\") - first(\"ifOutDiscards\")) FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+							"rawText": "SELECT (last(\"ifInDiscards\") - first(\"ifInDiscards\")) + (last(\"ifOutDiscards\") - first(\"ifOutDiscards\")) FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"ifName\"=':interface:'",
 							"range": null,
 							"shifts": null
 						},
@@ -226,7 +226,7 @@
 				"name": "Egress Packet Delivery - :host: - :interface:",
 				"queries": [
 					{
-						"query": "SELECT ((last(\"ifOutUcastPkts\") - first(\"ifOutUcastPkts\")) / ((last(\"ifOutUcastPkts\") - first(\"ifOutUcastPkts\")) + (last(\"ifOutDiscards\") - first(\"ifOutDiscards\")) + (last(\"ifOutErrors\") - first(\"ifOutErrors\")))) * 100 FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+						"query": "SELECT ((last(\"ifOutUcastPkts\") - first(\"ifOutUcastPkts\")) / ((last(\"ifOutUcastPkts\") - first(\"ifOutUcastPkts\")) + (last(\"ifOutDiscards\") - first(\"ifOutDiscards\")) + (last(\"ifOutErrors\") - first(\"ifOutErrors\")))) * 100 FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"ifName\"=':interface:'",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -238,7 +238,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT ((last(\"ifOutUcastPkts\") - first(\"ifOutUcastPkts\")) / ((last(\"ifOutUcastPkts\") - first(\"ifOutUcastPkts\")) + (last(\"ifOutDiscards\") - first(\"ifOutDiscards\")) + (last(\"ifOutErrors\") - first(\"ifOutErrors\")))) * 100 FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+							"rawText": "SELECT ((last(\"ifOutUcastPkts\") - first(\"ifOutUcastPkts\")) / ((last(\"ifOutUcastPkts\") - first(\"ifOutUcastPkts\")) + (last(\"ifOutDiscards\") - first(\"ifOutDiscards\")) + (last(\"ifOutErrors\") - first(\"ifOutErrors\")))) * 100 FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"ifName\"=':interface:'",
 							"range": null,
 							"shifts": null
 						},
@@ -329,7 +329,7 @@
 				"name": "Ingress Packet Delivery - :host: - :interface:",
 				"queries": [
 					{
-						"query": "SELECT ((last(\"ifInUcastPkts\") - first(\"ifInUcastPkts\")) / ((last(\"ifInUcastPkts\") - first(\"ifInUcastPkts\")) + (last(\"ifInDiscards\") - first(\"ifInDiscards\")) + (last(\"ifInErrors\") - first(\"ifInErrors\")) + (last(\"ifInUnknownProtos\") - first(\"ifInUnknownProtos\")))) * 100 FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+						"query": "SELECT ((last(\"ifInUcastPkts\") - first(\"ifInUcastPkts\")) / ((last(\"ifInUcastPkts\") - first(\"ifInUcastPkts\")) + (last(\"ifInDiscards\") - first(\"ifInDiscards\")) + (last(\"ifInErrors\") - first(\"ifInErrors\")) + (last(\"ifInUnknownProtos\") - first(\"ifInUnknownProtos\")))) * 100 FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"ifName\"=':interface:'",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -341,7 +341,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT ((last(\"ifInUcastPkts\") - first(\"ifInUcastPkts\")) / ((last(\"ifInUcastPkts\") - first(\"ifInUcastPkts\")) + (last(\"ifInDiscards\") - first(\"ifInDiscards\")) + (last(\"ifInErrors\") - first(\"ifInErrors\")) + (last(\"ifInUnknownProtos\") - first(\"ifInUnknownProtos\")))) * 100 FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+							"rawText": "SELECT ((last(\"ifInUcastPkts\") - first(\"ifInUcastPkts\")) / ((last(\"ifInUcastPkts\") - first(\"ifInUcastPkts\")) + (last(\"ifInDiscards\") - first(\"ifInDiscards\")) + (last(\"ifInErrors\") - first(\"ifInErrors\")) + (last(\"ifInUnknownProtos\") - first(\"ifInUnknownProtos\")))) * 100 FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"ifName\"=':interface:'",
 							"range": null,
 							"shifts": null
 						},
@@ -432,7 +432,7 @@
 				"name": "Dropped Packet Rate (pkts/s) - :host: - all interfaces",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress dropped pkts/s\", (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress dropped pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),ifName FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress dropped pkts/s\", (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress dropped pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:),ifName FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -444,7 +444,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress dropped pkts/s\", (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress dropped pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),ifName FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress dropped pkts/s\", (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress dropped pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:),ifName FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -510,24 +510,24 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "668e9add-5174-43d5-9e1f-b391c179f344",
+						"id": "90eb0762-6512-4518-bcb7-1e0063cc7e85",
 						"type": "scale",
-						"hex": "#DA6FF1",
-						"name": "Ectoplasm",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "5ec8edfd-acb7-46da-949a-67757fdae98f",
+						"id": "2fea9ff8-1d6f-41d9-9cde-3ec3087b3e0e",
 						"type": "scale",
-						"hex": "#00717A",
-						"name": "Ectoplasm",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "7ba78f03-a624-4287-b0bd-0c49afe5848f",
+						"id": "c7256129-06dd-418f-b3c2-b9c47b3f2807",
 						"type": "scale",
-						"hex": "#ACFF76",
-						"name": "Ectoplasm",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					}
 				],
@@ -569,7 +569,7 @@
 				"name": "Dropped Packet Rate (pkts/s) - :host: - :interface:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress dropped pkts/s\", (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress dropped pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress dropped pkts/s\", (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress dropped pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -581,7 +581,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress dropped pkts/s\", (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress dropped pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress dropped pkts/s\", (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress dropped pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -647,24 +647,24 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "668e9add-5174-43d5-9e1f-b391c179f344",
+						"id": "90eb0762-6512-4518-bcb7-1e0063cc7e85",
 						"type": "scale",
-						"hex": "#DA6FF1",
-						"name": "Ectoplasm",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "5ec8edfd-acb7-46da-949a-67757fdae98f",
+						"id": "2fea9ff8-1d6f-41d9-9cde-3ec3087b3e0e",
 						"type": "scale",
-						"hex": "#00717A",
-						"name": "Ectoplasm",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "7ba78f03-a624-4287-b0bd-0c49afe5848f",
+						"id": "c7256129-06dd-418f-b3c2-b9c47b3f2807",
 						"type": "scale",
-						"hex": "#ACFF76",
-						"name": "Ectoplasm",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					}
 				],
@@ -706,7 +706,7 @@
 				"name": "Network Traffic Rate (pkts/s) - :host: - all interfaces",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"ifInUcastPkts\"),1s) + non_negative_derivative(last(\"ifInBroadcastPkts\"),1s) + non_negative_derivative(last(\"ifInMulticastPkts\"),1s) + non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress pkts/s\", (non_negative_derivative(last(\"ifOutUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutBroadcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutMulticastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),ifName FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"ifInUcastPkts\"),1s) + non_negative_derivative(last(\"ifInBroadcastPkts\"),1s) + non_negative_derivative(last(\"ifInMulticastPkts\"),1s) + non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress pkts/s\", (non_negative_derivative(last(\"ifOutUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutBroadcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutMulticastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:),ifName FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -718,7 +718,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"ifInUcastPkts\"),1s) + non_negative_derivative(last(\"ifInBroadcastPkts\"),1s) + non_negative_derivative(last(\"ifInMulticastPkts\"),1s) + non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress pkts/s\", (non_negative_derivative(last(\"ifOutUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutBroadcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutMulticastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),ifName FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"ifInUcastPkts\"),1s) + non_negative_derivative(last(\"ifInBroadcastPkts\"),1s) + non_negative_derivative(last(\"ifInMulticastPkts\"),1s) + non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress pkts/s\", (non_negative_derivative(last(\"ifOutUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutBroadcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutMulticastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:),ifName FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -784,24 +784,24 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "668e9add-5174-43d5-9e1f-b391c179f344",
+						"id": "90eb0762-6512-4518-bcb7-1e0063cc7e85",
 						"type": "scale",
-						"hex": "#DA6FF1",
-						"name": "Ectoplasm",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "5ec8edfd-acb7-46da-949a-67757fdae98f",
+						"id": "2fea9ff8-1d6f-41d9-9cde-3ec3087b3e0e",
 						"type": "scale",
-						"hex": "#00717A",
-						"name": "Ectoplasm",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "7ba78f03-a624-4287-b0bd-0c49afe5848f",
+						"id": "c7256129-06dd-418f-b3c2-b9c47b3f2807",
 						"type": "scale",
-						"hex": "#ACFF76",
-						"name": "Ectoplasm",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					}
 				],
@@ -843,7 +843,7 @@
 				"name": "Network Traffic Rate (pkts/s) - :host: - :interface:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"ifInUcastPkts\"),1s) + non_negative_derivative(last(\"ifInBroadcastPkts\"),1s) + non_negative_derivative(last(\"ifInMulticastPkts\"),1s) + non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress pkts/s\", (non_negative_derivative(last(\"ifOutUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutBroadcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutMulticastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"ifInUcastPkts\"),1s) + non_negative_derivative(last(\"ifInBroadcastPkts\"),1s) + non_negative_derivative(last(\"ifInMulticastPkts\"),1s) + non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress pkts/s\", (non_negative_derivative(last(\"ifOutUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutBroadcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutMulticastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -855,7 +855,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"ifInUcastPkts\"),1s) + non_negative_derivative(last(\"ifInBroadcastPkts\"),1s) + non_negative_derivative(last(\"ifInMulticastPkts\"),1s) + non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress pkts/s\", (non_negative_derivative(last(\"ifOutUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutBroadcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutMulticastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"ifInUcastPkts\"),1s) + non_negative_derivative(last(\"ifInBroadcastPkts\"),1s) + non_negative_derivative(last(\"ifInMulticastPkts\"),1s) + non_negative_derivative(last(\"ifInDiscards\"),1s) + non_negative_derivative(last(\"ifInErrors\"),1s) + non_negative_derivative(last(\"ifInUnknownProtos\"),1s) AS \"ingress pkts/s\", (non_negative_derivative(last(\"ifOutUcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutBroadcastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutMulticastPkts\"),1s) * -1) + (non_negative_derivative(last(\"ifOutDiscards\"),1s) * -1) + (non_negative_derivative(last(\"ifOutErrors\"),1s) * -1) AS \"egress pkts/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -921,24 +921,24 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "668e9add-5174-43d5-9e1f-b391c179f344",
+						"id": "90eb0762-6512-4518-bcb7-1e0063cc7e85",
 						"type": "scale",
-						"hex": "#DA6FF1",
-						"name": "Ectoplasm",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "5ec8edfd-acb7-46da-949a-67757fdae98f",
+						"id": "2fea9ff8-1d6f-41d9-9cde-3ec3087b3e0e",
 						"type": "scale",
-						"hex": "#00717A",
-						"name": "Ectoplasm",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "7ba78f03-a624-4287-b0bd-0c49afe5848f",
+						"id": "c7256129-06dd-418f-b3c2-b9c47b3f2807",
 						"type": "scale",
-						"hex": "#ACFF76",
-						"name": "Ectoplasm",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					}
 				],
@@ -980,7 +980,7 @@
 				"name": "Network Traffic Rate (bits/s) - :host: - all interfaces",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"ifInOctets\"),1s) * 8 AS \"ingress bits/s\", non_negative_derivative(last(\"ifOutOctets\"),1s) * -8 AS \"egress bits/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),ifName FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"ifInOctets\"),1s) * 8 AS \"ingress bits/s\", non_negative_derivative(last(\"ifOutOctets\"),1s) * -8 AS \"egress bits/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:),ifName FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -992,7 +992,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"ifInOctets\"),1s) * 8 AS \"ingress bits/s\", non_negative_derivative(last(\"ifOutOctets\"),1s) * -8 AS \"egress bits/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),ifName FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"ifInOctets\"),1s) * 8 AS \"ingress bits/s\", non_negative_derivative(last(\"ifOutOctets\"),1s) * -8 AS \"egress bits/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:),ifName FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -1038,24 +1038,24 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "668e9add-5174-43d5-9e1f-b391c179f344",
+						"id": "90eb0762-6512-4518-bcb7-1e0063cc7e85",
 						"type": "scale",
-						"hex": "#DA6FF1",
-						"name": "Ectoplasm",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "5ec8edfd-acb7-46da-949a-67757fdae98f",
+						"id": "2fea9ff8-1d6f-41d9-9cde-3ec3087b3e0e",
 						"type": "scale",
-						"hex": "#00717A",
-						"name": "Ectoplasm",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "7ba78f03-a624-4287-b0bd-0c49afe5848f",
+						"id": "c7256129-06dd-418f-b3c2-b9c47b3f2807",
 						"type": "scale",
-						"hex": "#ACFF76",
-						"name": "Ectoplasm",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					}
 				],
@@ -1097,7 +1097,7 @@
 				"name": "Network Traffic Rate (bits/s) - :host: - :interface:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"ifInOctets\"),1s) * 8 AS \"ingress bits/s\", non_negative_derivative(last(\"ifOutOctets\"),1s) * -8 AS \"egress bits/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"ifInOctets\"),1s) * 8 AS \"ingress bits/s\", non_negative_derivative(last(\"ifOutOctets\"),1s) * -8 AS \"egress bits/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -1109,7 +1109,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"ifInOctets\"),1s) * 8 AS \"ingress bits/s\", non_negative_derivative(last(\"ifOutOctets\"),1s) * -8 AS \"egress bits/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"ifInOctets\"),1s) * 8 AS \"ingress bits/s\", non_negative_derivative(last(\"ifOutOctets\"),1s) * -8 AS \"egress bits/s\" FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"ifName\"=':interface:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -1155,24 +1155,24 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "668e9add-5174-43d5-9e1f-b391c179f344",
+						"id": "90eb0762-6512-4518-bcb7-1e0063cc7e85",
 						"type": "scale",
-						"hex": "#DA6FF1",
-						"name": "Ectoplasm",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "5ec8edfd-acb7-46da-949a-67757fdae98f",
+						"id": "2fea9ff8-1d6f-41d9-9cde-3ec3087b3e0e",
 						"type": "scale",
-						"hex": "#00717A",
-						"name": "Ectoplasm",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "7ba78f03-a624-4287-b0bd-0c49afe5848f",
+						"id": "c7256129-06dd-418f-b3c2-b9c47b3f2807",
 						"type": "scale",
-						"hex": "#ACFF76",
-						"name": "Ectoplasm",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					}
 				],
@@ -1214,7 +1214,7 @@
 				"name": "Total Unknown Protocols - :host: - :interface:",
 				"queries": [
 					{
-						"query": "SELECT last(\"ifInUnknownProtos\") - first(\"ifInUnknownProtos\") FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+						"query": "SELECT last(\"ifInUnknownProtos\") - first(\"ifInUnknownProtos\") FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"ifName\"=':interface:'",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -1226,7 +1226,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"ifInUnknownProtos\") - first(\"ifInUnknownProtos\") FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"ifName\"=':interface:'",
+							"rawText": "SELECT last(\"ifInUnknownProtos\") - first(\"ifInUnknownProtos\") FROM \"snmp\"..\"IF-MIB::ifEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"ifName\"=':interface:'",
 							"range": null,
 							"shifts": null
 						},
@@ -1315,18 +1315,17 @@
 				"values": [
 					{
 						"value": "rt1",
-						"type": "tagValue",
+						"type": "influxql",
 						"selected": true
 					}
 				],
 				"id": "c959c62c-9da8-428a-97fc-6450c94653f9",
-				"type": "tagValues",
+				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON :database: FROM :measurement: WITH KEY=:tagKey:",
-					"db": "snmp",
-					"measurement": "IF-MIB::ifEntry",
-					"tagKey": "host",
+					"influxql": "SHOW TAG VALUES ON \"snmp\" FROM \"IF-MIB::ifEntry\" WITH KEY=\"host\"",
+					"measurement": "",
+					"tagKey": "",
 					"fieldKey": ""
 				},
 				"links": {
@@ -1346,7 +1345,7 @@
 				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON \"snmp\" FROM \"IF-MIB::ifEntry\" WITH KEY=\"ifName\" WHERE \"host\"=:host:",
+					"influxql": "SHOW TAG VALUES ON \"snmp\" FROM \"IF-MIB::ifEntry\" WITH KEY=\"ifName\" WHERE \"host\"=':host:'",
 					"measurement": "",
 					"tagKey": "",
 					"fieldKey": ""

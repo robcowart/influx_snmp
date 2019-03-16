@@ -9,42 +9,30 @@
 		}
 	},
 	"dashboard": {
-		"id": 28,
+		"id": 26,
 		"cells": [
 			{
-				"i": "cbba2461-9406-4ed1-9475-fad2f004676b",
+				"i": "c32ca2a0-8cb5-43da-a60c-14320046723f",
 				"x": 6,
-				"y": 3,
+				"y": 9,
 				"w": 6,
 				"h": 3,
-				"name": "Heap & Buffers % (Routing Engine) - :device:",
+				"name": "CPU Time - :NAS: - :Device:",
 				"queries": [
 					{
-						"query": "SELECT last(\"jnxOperatingHeap\") AS \"Heap Utilization\", last(\"jnxOperatingBuffer\") AS \"Buffer Utilization\" FROM \"snmp\"..\"JUNIPER-MIB::jnxOperatingEntity\" WHERE time > :dashboardTime: AND \"host\"=':device:' AND \"index\"='9.1.0.0' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT mean(\"ioCpuTime\") AS \"CPU Time\" FROM \"snmp\"..\"IOMEGANAS-MIB::ioEntry\" WHERE time > :dashboardTime: AND \"host\"=':NAS:' AND \"ioName\"=':Device:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "snmp",
-							"measurement": "JUNIPER-MIB::jnxOperatingEntity",
+							"measurement": "IOMEGANAS-MIB::ioEntry",
 							"retentionPolicy": "",
 							"fields": [
 								{
-									"value": "last",
+									"value": "mean",
 									"type": "func",
-									"alias": "Heap Utilization",
+									"alias": "CPU Time",
 									"args": [
 										{
-											"value": "jnxOperatingHeap",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								},
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "Buffer Utilization",
-									"args": [
-										{
-											"value": "jnxOperatingBuffer",
+											"value": "ioCpuTime",
 											"type": "field",
 											"alias": ""
 										}
@@ -53,10 +41,10 @@
 							],
 							"tags": {
 								"host": [
-									":device:"
+									":NAS:"
 								],
-								"index": [
-									"9.1.0.0"
+								"ioName": [
+									":Device:"
 								]
 							},
 							"groupBy": {
@@ -90,1222 +78,7 @@
 							"0",
 							""
 						],
-						"label": "",
-						"prefix": "",
-						"suffix": " %",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y2": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					}
-				},
-				"type": "line-stacked",
-				"colors": [
-					{
-						"id": "88ea223a-3dbf-4e9e-a01e-5bc55c0d2153",
-						"type": "scale",
-						"hex": "#31C0F6",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					},
-					{
-						"id": "100ab135-610e-4278-9bfa-e84f1bbdc148",
-						"type": "scale",
-						"hex": "#A500A5",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					},
-					{
-						"id": "0c2d9237-463b-447e-9daf-4d1f8b82e6e6",
-						"type": "scale",
-						"hex": "#FF7E27",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					}
-				],
-				"legend": {},
-				"tableOptions": {
-					"verticalTimeAxis": true,
-					"sortBy": {
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					},
-					"wrapping": "truncate",
-					"fixFirstColumn": true
-				},
-				"fieldOptions": [
-					{
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					}
-				],
-				"timeFormat": "MM/DD/YYYY HH:mm:ss",
-				"decimalPlaces": {
-					"isEnforced": true,
-					"digits": 0
-				},
-				"note": "The selected device does not provide this metric.",
-				"noteVisibility": "showWhenNoData",
-				"links": {
-					"self": "/chronograf/v1/dashboards/28/cells/cbba2461-9406-4ed1-9475-fad2f004676b"
-				}
-			},
-			{
-				"i": "79a966e1-ac4c-48b4-952f-e07ba043d880",
-				"x": 6,
-				"y": 6,
-				"w": 6,
-				"h": 3,
-				"name": "Temperature (Routing Engine) - :device:",
-				"queries": [
-					{
-						"query": "SELECT last(\"jnxOperatingTemp\") AS \"Temperature\" FROM \"snmp\"..\"JUNIPER-MIB::jnxOperatingEntity\" WHERE time > :dashboardTime: AND \"host\"=':device:' AND \"index\"='9.1.0.0' GROUP BY time(:interval:) FILL(null)",
-						"queryConfig": {
-							"database": "snmp",
-							"measurement": "JUNIPER-MIB::jnxOperatingEntity",
-							"retentionPolicy": "",
-							"fields": [
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "Temperature",
-									"args": [
-										{
-											"value": "jnxOperatingTemp",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								}
-							],
-							"tags": {
-								"host": [
-									":device:"
-								],
-								"index": [
-									"9.1.0.0"
-								]
-							},
-							"groupBy": {
-								"time": "auto",
-								"tags": []
-							},
-							"areTagsAccepted": true,
-							"fill": "null",
-							"rawText": null,
-							"range": null,
-							"shifts": null
-						},
-						"source": "",
-						"type": "influxql"
-					}
-				],
-				"axes": {
-					"x": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y": {
-						"bounds": [
-							"0",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": " C",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y2": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					}
-				},
-				"type": "line",
-				"colors": [
-					{
-						"id": "88ea223a-3dbf-4e9e-a01e-5bc55c0d2153",
-						"type": "scale",
-						"hex": "#31C0F6",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					},
-					{
-						"id": "100ab135-610e-4278-9bfa-e84f1bbdc148",
-						"type": "scale",
-						"hex": "#A500A5",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					},
-					{
-						"id": "0c2d9237-463b-447e-9daf-4d1f8b82e6e6",
-						"type": "scale",
-						"hex": "#FF7E27",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					}
-				],
-				"legend": {},
-				"tableOptions": {
-					"verticalTimeAxis": true,
-					"sortBy": {
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					},
-					"wrapping": "truncate",
-					"fixFirstColumn": true
-				},
-				"fieldOptions": [
-					{
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					}
-				],
-				"timeFormat": "MM/DD/YYYY HH:mm:ss",
-				"decimalPlaces": {
-					"isEnforced": true,
-					"digits": 0
-				},
-				"note": "The selected device does not provide this metric.",
-				"noteVisibility": "showWhenNoData",
-				"links": {
-					"self": "/chronograf/v1/dashboards/28/cells/79a966e1-ac4c-48b4-952f-e07ba043d880"
-				}
-			},
-			{
-				"i": "c4f0fea0-8fa4-4faa-a179-2f2c83bc9cb9",
-				"x": 0,
-				"y": 6,
-				"w": 6,
-				"h": 3,
-				"name": "CPU Load % (Routing Engine) - :device:",
-				"queries": [
-					{
-						"query": "SELECT last(\"jnxOperating1MinLoadAvg\") AS \"1-min Load\", last(\"jnxOperating5MinLoadAvg\") AS \"5-min Load\", last(\"jnxOperating15MinLoadAvg\") AS \"15-min Load\" FROM \"snmp\"..\"JUNIPER-MIB::jnxOperatingEntity\" WHERE time > :dashboardTime: AND \"host\"=':device:' AND \"index\"='9.1.0.0' GROUP BY time(:interval:) FILL(null)",
-						"queryConfig": {
-							"database": "snmp",
-							"measurement": "JUNIPER-MIB::jnxOperatingEntity",
-							"retentionPolicy": "",
-							"fields": [
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "1-min Load",
-									"args": [
-										{
-											"value": "jnxOperating1MinLoadAvg",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								},
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "5-min Load",
-									"args": [
-										{
-											"value": "jnxOperating5MinLoadAvg",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								},
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "15-min Load",
-									"args": [
-										{
-											"value": "jnxOperating15MinLoadAvg",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								}
-							],
-							"tags": {
-								"host": [
-									":device:"
-								],
-								"index": [
-									"9.1.0.0"
-								]
-							},
-							"groupBy": {
-								"time": "auto",
-								"tags": []
-							},
-							"areTagsAccepted": true,
-							"fill": "null",
-							"rawText": null,
-							"range": null,
-							"shifts": null
-						},
-						"source": "",
-						"type": "influxql"
-					}
-				],
-				"axes": {
-					"x": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y": {
-						"bounds": [
-							"0",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": " %",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y2": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					}
-				},
-				"type": "line",
-				"colors": [
-					{
-						"id": "88ea223a-3dbf-4e9e-a01e-5bc55c0d2153",
-						"type": "scale",
-						"hex": "#31C0F6",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					},
-					{
-						"id": "100ab135-610e-4278-9bfa-e84f1bbdc148",
-						"type": "scale",
-						"hex": "#A500A5",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					},
-					{
-						"id": "0c2d9237-463b-447e-9daf-4d1f8b82e6e6",
-						"type": "scale",
-						"hex": "#FF7E27",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					}
-				],
-				"legend": {},
-				"tableOptions": {
-					"verticalTimeAxis": true,
-					"sortBy": {
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					},
-					"wrapping": "truncate",
-					"fixFirstColumn": true
-				},
-				"fieldOptions": [
-					{
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					}
-				],
-				"timeFormat": "MM/DD/YYYY HH:mm:ss",
-				"decimalPlaces": {
-					"isEnforced": true,
-					"digits": 0
-				},
-				"note": "The selected device does not provide this metric.",
-				"noteVisibility": "showWhenNoData",
-				"links": {
-					"self": "/chronograf/v1/dashboards/28/cells/c4f0fea0-8fa4-4faa-a179-2f2c83bc9cb9"
-				}
-			},
-			{
-				"i": "cb38ed31-d35d-4ae3-a315-65bcc0678db3",
-				"x": 2,
-				"y": 0,
-				"w": 2,
-				"h": 3,
-				"name": "CPU 5-min Load % (Routing Engine) - :device:",
-				"queries": [
-					{
-						"query": "SELECT last(\"jnxOperating5MinLoadAvg\") AS \"5-min Load\" FROM \"snmp\"..\"JUNIPER-MIB::jnxOperatingEntity\" WHERE time > :dashboardTime: AND \"host\"=':device:' AND \"index\"='9.1.0.0'",
-						"queryConfig": {
-							"database": "snmp",
-							"measurement": "JUNIPER-MIB::jnxOperatingEntity",
-							"retentionPolicy": "",
-							"fields": [
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "5-min Load",
-									"args": [
-										{
-											"value": "jnxOperating5MinLoadAvg",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								}
-							],
-							"tags": {
-								"host": [
-									":device:"
-								],
-								"index": [
-									"9.1.0.0"
-								]
-							},
-							"groupBy": {
-								"time": "",
-								"tags": []
-							},
-							"areTagsAccepted": true,
-							"rawText": null,
-							"range": null,
-							"shifts": null
-						},
-						"source": "",
-						"type": "influxql"
-					}
-				],
-				"axes": {
-					"x": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y": {
-						"bounds": [
-							"0",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": " %",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y2": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					}
-				},
-				"type": "gauge",
-				"colors": [
-					{
-						"id": "0",
-						"type": "min",
-						"hex": "#32B08C",
-						"name": "viridian",
-						"value": "0"
-					},
-					{
-						"id": "1",
-						"type": "max",
-						"hex": "#FFD255",
-						"name": "thunder",
-						"value": "100"
-					}
-				],
-				"legend": {},
-				"tableOptions": {
-					"verticalTimeAxis": true,
-					"sortBy": {
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					},
-					"wrapping": "truncate",
-					"fixFirstColumn": true
-				},
-				"fieldOptions": [
-					{
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					}
-				],
-				"timeFormat": "MM/DD/YYYY HH:mm:ss",
-				"decimalPlaces": {
-					"isEnforced": true,
-					"digits": 0
-				},
-				"note": "The selected device does not provide this metric.",
-				"noteVisibility": "showWhenNoData",
-				"links": {
-					"self": "/chronograf/v1/dashboards/28/cells/cb38ed31-d35d-4ae3-a315-65bcc0678db3"
-				}
-			},
-			{
-				"i": "096a6ad2-63cb-473f-8344-41ea66d2731c",
-				"x": 10,
-				"y": 0,
-				"w": 2,
-				"h": 3,
-				"name": "Temperature (Routing Engine) - :device:",
-				"queries": [
-					{
-						"query": "SELECT last(\"jnxOperatingTemp\") AS \"Temperature\" FROM \"snmp\"..\"JUNIPER-MIB::jnxOperatingEntity\" WHERE time > :dashboardTime: AND \"host\"=':device:' AND \"index\"='9.1.0.0'",
-						"queryConfig": {
-							"database": "snmp",
-							"measurement": "JUNIPER-MIB::jnxOperatingEntity",
-							"retentionPolicy": "",
-							"fields": [
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "Temperature",
-									"args": [
-										{
-											"value": "jnxOperatingTemp",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								}
-							],
-							"tags": {
-								"host": [
-									":device:"
-								],
-								"index": [
-									"9.1.0.0"
-								]
-							},
-							"groupBy": {
-								"time": "",
-								"tags": []
-							},
-							"areTagsAccepted": true,
-							"rawText": null,
-							"range": null,
-							"shifts": null
-						},
-						"source": "",
-						"type": "influxql"
-					}
-				],
-				"axes": {
-					"x": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y": {
-						"bounds": [
-							"0",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": " C",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y2": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					}
-				},
-				"type": "gauge",
-				"colors": [
-					{
-						"id": "0",
-						"type": "min",
-						"hex": "#00C9FF",
-						"name": "laser",
-						"value": "0"
-					},
-					{
-						"id": "1",
-						"type": "max",
-						"hex": "#F48D38",
-						"name": "tiger",
-						"value": "90"
-					}
-				],
-				"legend": {},
-				"tableOptions": {
-					"verticalTimeAxis": true,
-					"sortBy": {
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					},
-					"wrapping": "truncate",
-					"fixFirstColumn": true
-				},
-				"fieldOptions": [
-					{
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					}
-				],
-				"timeFormat": "MM/DD/YYYY HH:mm:ss",
-				"decimalPlaces": {
-					"isEnforced": true,
-					"digits": 0
-				},
-				"note": "The selected device does not provide this metric.",
-				"noteVisibility": "showWhenNoData",
-				"links": {
-					"self": "/chronograf/v1/dashboards/28/cells/096a6ad2-63cb-473f-8344-41ea66d2731c"
-				}
-			},
-			{
-				"i": "dae2ad2a-ac9d-4527-9c13-621ca4d769cf",
-				"x": 8,
-				"y": 0,
-				"w": 2,
-				"h": 3,
-				"name": "Memory % (Kernel) - :device:",
-				"queries": [
-					{
-						"query": "SELECT last(\"jnxBoxKernelMemoryUsedPercent\") AS \"Kernel Memory Utilization\" FROM \"snmp\"..\"JUNIPER-MIB::jnxBoxAnatomy\" WHERE time > :dashboardTime: AND \"host\"=':device:'",
-						"queryConfig": {
-							"database": "snmp",
-							"measurement": "JUNIPER-MIB::jnxBoxAnatomy",
-							"retentionPolicy": "",
-							"fields": [
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "Kernel Memory Utilization",
-									"args": [
-										{
-											"value": "jnxBoxKernelMemoryUsedPercent",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								}
-							],
-							"tags": {
-								"host": [
-									":device:"
-								]
-							},
-							"groupBy": {
-								"time": "",
-								"tags": []
-							},
-							"areTagsAccepted": true,
-							"rawText": null,
-							"range": null,
-							"shifts": null
-						},
-						"source": "",
-						"type": "influxql"
-					}
-				],
-				"axes": {
-					"x": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y": {
-						"bounds": [
-							"0",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": " %",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y2": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					}
-				},
-				"type": "gauge",
-				"colors": [
-					{
-						"id": "0",
-						"type": "min",
-						"hex": "#32B08C",
-						"name": "viridian",
-						"value": "0"
-					},
-					{
-						"id": "1",
-						"type": "max",
-						"hex": "#DC4E58",
-						"name": "fire",
-						"value": "100"
-					}
-				],
-				"legend": {},
-				"tableOptions": {
-					"verticalTimeAxis": true,
-					"sortBy": {
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					},
-					"wrapping": "truncate",
-					"fixFirstColumn": true
-				},
-				"fieldOptions": [
-					{
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					}
-				],
-				"timeFormat": "MM/DD/YYYY HH:mm:ss",
-				"decimalPlaces": {
-					"isEnforced": true,
-					"digits": 0
-				},
-				"note": "The selected device does not provide this metric.",
-				"noteVisibility": "showWhenNoData",
-				"links": {
-					"self": "/chronograf/v1/dashboards/28/cells/dae2ad2a-ac9d-4527-9c13-621ca4d769cf"
-				}
-			},
-			{
-				"i": "4de79535-84df-446a-81d3-86a3633cfb37",
-				"x": 6,
-				"y": 0,
-				"w": 2,
-				"h": 3,
-				"name": "Buffer % (Routing Engine) - :device:",
-				"queries": [
-					{
-						"query": "SELECT last(\"jnxOperatingBuffer\") AS \"Buffer Utilization\" FROM \"snmp\"..\"JUNIPER-MIB::jnxOperatingEntity\" WHERE time > :dashboardTime: AND \"host\"=':device:' AND \"index\"='9.1.0.0'",
-						"queryConfig": {
-							"database": "snmp",
-							"measurement": "JUNIPER-MIB::jnxOperatingEntity",
-							"retentionPolicy": "",
-							"fields": [
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "Buffer Utilization",
-									"args": [
-										{
-											"value": "jnxOperatingBuffer",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								}
-							],
-							"tags": {
-								"host": [
-									":device:"
-								],
-								"index": [
-									"9.1.0.0"
-								]
-							},
-							"groupBy": {
-								"time": "",
-								"tags": []
-							},
-							"areTagsAccepted": true,
-							"rawText": null,
-							"range": null,
-							"shifts": null
-						},
-						"source": "",
-						"type": "influxql"
-					}
-				],
-				"axes": {
-					"x": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y": {
-						"bounds": [
-							"0",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": " %",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y2": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					}
-				},
-				"type": "gauge",
-				"colors": [
-					{
-						"id": "0",
-						"type": "min",
-						"hex": "#32B08C",
-						"name": "viridian",
-						"value": "0"
-					},
-					{
-						"id": "1",
-						"type": "max",
-						"hex": "#DC4E58",
-						"name": "fire",
-						"value": "100"
-					}
-				],
-				"legend": {},
-				"tableOptions": {
-					"verticalTimeAxis": true,
-					"sortBy": {
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					},
-					"wrapping": "truncate",
-					"fixFirstColumn": true
-				},
-				"fieldOptions": [
-					{
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					}
-				],
-				"timeFormat": "MM/DD/YYYY HH:mm:ss",
-				"decimalPlaces": {
-					"isEnforced": true,
-					"digits": 0
-				},
-				"note": "The selected device does not provide this metric.",
-				"noteVisibility": "showWhenNoData",
-				"links": {
-					"self": "/chronograf/v1/dashboards/28/cells/4de79535-84df-446a-81d3-86a3633cfb37"
-				}
-			},
-			{
-				"i": "dad1e2c3-a58c-4026-bba3-373b5dd6cf43",
-				"x": 4,
-				"y": 0,
-				"w": 2,
-				"h": 3,
-				"name": "Heap % (Routing Engine) - :device:",
-				"queries": [
-					{
-						"query": "SELECT last(\"jnxOperatingHeap\") AS \"Heap Utilization\" FROM \"snmp\"..\"JUNIPER-MIB::jnxOperatingEntity\" WHERE time > :dashboardTime: AND \"host\"=':device:' AND \"index\"='9.1.0.0'",
-						"queryConfig": {
-							"database": "snmp",
-							"measurement": "JUNIPER-MIB::jnxOperatingEntity",
-							"retentionPolicy": "",
-							"fields": [
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "Heap Utilization",
-									"args": [
-										{
-											"value": "jnxOperatingHeap",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								}
-							],
-							"tags": {
-								"host": [
-									":device:"
-								],
-								"index": [
-									"9.1.0.0"
-								]
-							},
-							"groupBy": {
-								"time": "",
-								"tags": []
-							},
-							"areTagsAccepted": true,
-							"rawText": null,
-							"range": null,
-							"shifts": null
-						},
-						"source": "",
-						"type": "influxql"
-					}
-				],
-				"axes": {
-					"x": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y": {
-						"bounds": [
-							"0",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": " %",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y2": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					}
-				},
-				"type": "gauge",
-				"colors": [
-					{
-						"id": "0",
-						"type": "min",
-						"hex": "#32B08C",
-						"name": "viridian",
-						"value": "0"
-					},
-					{
-						"id": "1",
-						"type": "max",
-						"hex": "#DC4E58",
-						"name": "fire",
-						"value": "100"
-					}
-				],
-				"legend": {},
-				"tableOptions": {
-					"verticalTimeAxis": true,
-					"sortBy": {
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					},
-					"wrapping": "truncate",
-					"fixFirstColumn": true
-				},
-				"fieldOptions": [
-					{
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					}
-				],
-				"timeFormat": "MM/DD/YYYY HH:mm:ss",
-				"decimalPlaces": {
-					"isEnforced": true,
-					"digits": 0
-				},
-				"note": "The selected device does not provide this metric.",
-				"noteVisibility": "showWhenNoData",
-				"links": {
-					"self": "/chronograf/v1/dashboards/28/cells/dad1e2c3-a58c-4026-bba3-373b5dd6cf43"
-				}
-			},
-			{
-				"i": "325c728c-8282-44fd-8532-d880438df361",
-				"x": 0,
-				"y": 0,
-				"w": 2,
-				"h": 3,
-				"name": "CPU % (Routing Engine) - :device:",
-				"queries": [
-					{
-						"query": "SELECT last(\"jnxOperatingCPU\") AS \"CPU Utilization\" FROM \"snmp\"..\"JUNIPER-MIB::jnxOperatingEntity\" WHERE time > :dashboardTime: AND \"host\"=':device:' AND \"index\"='9.1.0.0'",
-						"queryConfig": {
-							"database": "snmp",
-							"measurement": "JUNIPER-MIB::jnxOperatingEntity",
-							"retentionPolicy": "",
-							"fields": [
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "CPU Utilization",
-									"args": [
-										{
-											"value": "jnxOperatingCPU",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								}
-							],
-							"tags": {
-								"host": [
-									":device:"
-								],
-								"index": [
-									"9.1.0.0"
-								]
-							},
-							"groupBy": {
-								"time": "",
-								"tags": []
-							},
-							"areTagsAccepted": true,
-							"rawText": null,
-							"range": null,
-							"shifts": null
-						},
-						"source": "",
-						"type": "influxql"
-					}
-				],
-				"axes": {
-					"x": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y": {
-						"bounds": [
-							"0",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": " %",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y2": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					}
-				},
-				"type": "gauge",
-				"colors": [
-					{
-						"id": "0",
-						"type": "min",
-						"hex": "#32B08C",
-						"name": "viridian",
-						"value": "0"
-					},
-					{
-						"id": "1",
-						"type": "max",
-						"hex": "#DC4E58",
-						"name": "fire",
-						"value": "100"
-					}
-				],
-				"legend": {},
-				"tableOptions": {
-					"verticalTimeAxis": true,
-					"sortBy": {
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					},
-					"wrapping": "truncate",
-					"fixFirstColumn": true
-				},
-				"fieldOptions": [
-					{
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					}
-				],
-				"timeFormat": "MM/DD/YYYY HH:mm:ss",
-				"decimalPlaces": {
-					"isEnforced": true,
-					"digits": 0
-				},
-				"note": "The selected device does not provide this metric.",
-				"noteVisibility": "showWhenNoData",
-				"links": {
-					"self": "/chronograf/v1/dashboards/28/cells/325c728c-8282-44fd-8532-d880438df361"
-				}
-			},
-			{
-				"i": "39382086-423c-47c8-acd9-f4e2307c66f6",
-				"x": 0,
-				"y": 3,
-				"w": 6,
-				"h": 3,
-				"name": "CPU % (Routing Engine) - :device:",
-				"queries": [
-					{
-						"query": "SELECT last(\"jnxOperatingCPU\") AS \"CPU Utilization\" FROM \"snmp\"..\"JUNIPER-MIB::jnxOperatingEntity\" WHERE time > :dashboardTime: AND \"host\"=':device:' AND \"index\"='9.1.0.0' GROUP BY time(:interval:) FILL(null)",
-						"queryConfig": {
-							"database": "snmp",
-							"measurement": "JUNIPER-MIB::jnxOperatingEntity",
-							"retentionPolicy": "",
-							"fields": [
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "CPU Utilization",
-									"args": [
-										{
-											"value": "jnxOperatingCPU",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								}
-							],
-							"tags": {
-								"host": [
-									":device:"
-								],
-								"index": [
-									"9.1.0.0"
-								]
-							},
-							"groupBy": {
-								"time": "auto",
-								"tags": []
-							},
-							"areTagsAccepted": true,
-							"fill": "null",
-							"rawText": null,
-							"range": null,
-							"shifts": null
-						},
-						"source": "",
-						"type": "influxql"
-					}
-				],
-				"axes": {
-					"x": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y": {
-						"bounds": [
-							"0",
-							""
-						],
-						"label": "",
+						"label": "CPU Time",
 						"prefix": "",
 						"suffix": "%",
 						"base": "10",
@@ -1326,21 +99,21 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "88ea223a-3dbf-4e9e-a01e-5bc55c0d2153",
+						"id": "d5804343-f1a2-43af-b6bd-f31741e8bd38",
 						"type": "scale",
 						"hex": "#31C0F6",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "100ab135-610e-4278-9bfa-e84f1bbdc148",
+						"id": "a8bae5db-f6d0-420c-b9a7-c0552d10ce0f",
 						"type": "scale",
 						"hex": "#A500A5",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "0c2d9237-463b-447e-9daf-4d1f8b82e6e6",
+						"id": "294752da-3b5c-4cd1-9cd7-278d178145f4",
 						"type": "scale",
 						"hex": "#FF7E27",
 						"name": "Nineteen Eighty Four",
@@ -1370,43 +143,1050 @@
 					"isEnforced": true,
 					"digits": 2
 				},
-				"note": "The selected device does not provide this metric.",
-				"noteVisibility": "showWhenNoData",
+				"note": "",
+				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/28/cells/39382086-423c-47c8-acd9-f4e2307c66f6"
+					"self": "/chronograf/v1/dashboards/26/cells/c32ca2a0-8cb5-43da-a60c-14320046723f"
+				}
+			},
+			{
+				"i": "99dabf74-53a6-44ae-8bf5-1cbfcb369616",
+				"x": 6,
+				"y": 0,
+				"w": 6,
+				"h": 3,
+				"name": "Disk Time Utilization - :NAS: - :Device:",
+				"queries": [
+					{
+						"query": "SELECT mean(\"ioAvgUtil\") AS \"Time Utilization\" FROM \"snmp\"..\"IOMEGANAS-MIB::ioEntry\" WHERE time > :dashboardTime: AND \"host\"=':NAS:' AND \"ioName\"=':Device:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "snmp",
+							"measurement": "IOMEGANAS-MIB::ioEntry",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Time Utilization",
+									"args": [
+										{
+											"value": "ioAvgUtil",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":NAS:"
+								],
+								"ioName": [
+									":Device:"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "Utilization",
+						"prefix": "",
+						"suffix": "%",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "d5804343-f1a2-43af-b6bd-f31741e8bd38",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a8bae5db-f6d0-420c-b9a7-c0552d10ce0f",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "294752da-3b5c-4cd1-9cd7-278d178145f4",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/26/cells/99dabf74-53a6-44ae-8bf5-1cbfcb369616"
+				}
+			},
+			{
+				"i": "a79a9459-2b27-41bf-abb4-edf7ffa11e5a",
+				"x": 6,
+				"y": 3,
+				"w": 6,
+				"h": 3,
+				"name": "Service Time - :NAS: - :Device:",
+				"queries": [
+					{
+						"query": "SELECT mean(\"ioAvgSvc\") AS \"Service Time\" FROM \"snmp\"..\"IOMEGANAS-MIB::ioEntry\" WHERE time > :dashboardTime: AND \"host\"=':NAS:' AND \"ioName\"=':Device:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "snmp",
+							"measurement": "IOMEGANAS-MIB::ioEntry",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Service Time",
+									"args": [
+										{
+											"value": "ioAvgSvc",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":NAS:"
+								],
+								"ioName": [
+									":Device:"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "Service Time",
+						"prefix": "",
+						"suffix": "s",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "d5804343-f1a2-43af-b6bd-f31741e8bd38",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a8bae5db-f6d0-420c-b9a7-c0552d10ce0f",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "294752da-3b5c-4cd1-9cd7-278d178145f4",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/26/cells/a79a9459-2b27-41bf-abb4-edf7ffa11e5a"
+				}
+			},
+			{
+				"i": "03c39fab-c3f9-4bd8-bbdd-38f17862507c",
+				"x": 6,
+				"y": 6,
+				"w": 6,
+				"h": 3,
+				"name": "Wait Time - :NAS: - :Device:",
+				"queries": [
+					{
+						"query": "SELECT mean(\"ioAvgWait\") AS \"Wait Time\" FROM \"snmp\"..\"IOMEGANAS-MIB::ioEntry\" WHERE time > :dashboardTime: AND \"host\"=':NAS:' AND \"ioName\"=':Device:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "snmp",
+							"measurement": "IOMEGANAS-MIB::ioEntry",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Wait Time",
+									"args": [
+										{
+											"value": "ioAvgWait",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":NAS:"
+								],
+								"ioName": [
+									":Device:"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "Wait Time",
+						"prefix": "",
+						"suffix": "s",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "d5804343-f1a2-43af-b6bd-f31741e8bd38",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a8bae5db-f6d0-420c-b9a7-c0552d10ce0f",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "294752da-3b5c-4cd1-9cd7-278d178145f4",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/26/cells/03c39fab-c3f9-4bd8-bbdd-38f17862507c"
+				}
+			},
+			{
+				"i": "32c4146b-fa42-43be-9db4-449108053c4f",
+				"x": 0,
+				"y": 6,
+				"w": 6,
+				"h": 3,
+				"name": "Queue - :NAS: - :Device:",
+				"queries": [
+					{
+						"query": "SELECT mean(\"ioAvgQueue\") AS \"Queue Length\" FROM \"snmp\"..\"IOMEGANAS-MIB::ioEntry\" WHERE time > :dashboardTime: AND \"host\"=':NAS:' AND \"ioName\"=':Device:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "snmp",
+							"measurement": "IOMEGANAS-MIB::ioEntry",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Queue Length",
+									"args": [
+										{
+											"value": "ioAvgQueue",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":NAS:"
+								],
+								"ioName": [
+									":Device:"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "Queue Length",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "d5804343-f1a2-43af-b6bd-f31741e8bd38",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a8bae5db-f6d0-420c-b9a7-c0552d10ce0f",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "294752da-3b5c-4cd1-9cd7-278d178145f4",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/26/cells/32c4146b-fa42-43be-9db4-449108053c4f"
+				}
+			},
+			{
+				"i": "5d0bcef8-2d93-4369-ac4a-ebb7cc6d1e25",
+				"x": 0,
+				"y": 3,
+				"w": 6,
+				"h": 3,
+				"name": "IO Kilobytes - :NAS: - :Device:",
+				"queries": [
+					{
+						"query": "SELECT mean(\"ioKbrs\") AS \"read KB\" FROM \"snmp\"..\"IOMEGANAS-MIB::ioEntry\" WHERE time > :dashboardTime: AND \"host\"=':NAS:' AND \"ioName\"=':Device:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "snmp",
+							"measurement": "IOMEGANAS-MIB::ioEntry",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "read KB",
+									"args": [
+										{
+											"value": "ioKbrs",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":NAS:"
+								],
+								"ioName": [
+									":Device:"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT mean(\"ioKbws\") * -1 AS \"write KB\" FROM \"snmp\".\"autogen\".\"IOMEGANAS-MIB::ioEntry\" WHERE time > :dashboardTime: AND \"host\"=':NAS:' AND \"ioName\"=':Device:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"ioKbws\") * -1 AS \"write KB\" FROM \"snmp\".\"autogen\".\"IOMEGANAS-MIB::ioEntry\" WHERE time > :dashboardTime: AND \"host\"=':NAS:' AND \"ioName\"=':Device:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "kilobytes",
+						"prefix": "",
+						"suffix": "/s",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "d5804343-f1a2-43af-b6bd-f31741e8bd38",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a8bae5db-f6d0-420c-b9a7-c0552d10ce0f",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "294752da-3b5c-4cd1-9cd7-278d178145f4",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/26/cells/5d0bcef8-2d93-4369-ac4a-ebb7cc6d1e25"
+				}
+			},
+			{
+				"i": "44b4664f-3b87-4f24-97a9-b08ffe7ac854",
+				"x": 0,
+				"y": 0,
+				"w": 6,
+				"h": 3,
+				"name": "IOPS - :NAS: - :Device:",
+				"queries": [
+					{
+						"query": "SELECT mean(\"ioReqrs\") AS \"read IOPS\", mean(\"ioReqws\") * -1 AS \"write IOPS\" FROM \"snmp\"..\"IOMEGANAS-MIB::ioEntry\" WHERE time > :dashboardTime: AND \"host\"=':NAS:' AND \"ioName\"=':Device:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"ioReqrs\") AS \"read IOPS\", mean(\"ioReqws\") * -1 AS \"write IOPS\" FROM \"snmp\"..\"IOMEGANAS-MIB::ioEntry\" WHERE time > :dashboardTime: AND \"host\"=':NAS:' AND \"ioName\"=':Device:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "IOPS",
+						"prefix": "",
+						"suffix": "/s",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "d5804343-f1a2-43af-b6bd-f31741e8bd38",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a8bae5db-f6d0-420c-b9a7-c0552d10ce0f",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "294752da-3b5c-4cd1-9cd7-278d178145f4",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/26/cells/44b4664f-3b87-4f24-97a9-b08ffe7ac854"
+				}
+			},
+			{
+				"i": "aa7222e3-f408-4936-bf7a-5dd4e3a22853",
+				"x": 0,
+				"y": 9,
+				"w": 6,
+				"h": 3,
+				"name": "IO Merges - :NAS: - :Device:",
+				"queries": [
+					{
+						"query": "SELECT mean(\"ioMgrs\") AS \"read merges\" FROM \"snmp\"..\"IOMEGANAS-MIB::ioEntry\" WHERE time > :dashboardTime: AND \"host\"=':NAS:' AND \"ioName\"=':Device:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "snmp",
+							"measurement": "IOMEGANAS-MIB::ioEntry",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "read merges",
+									"args": [
+										{
+											"value": "ioMgrs",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":NAS:"
+								],
+								"ioName": [
+									":Device:"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT mean(\"ioMgws\") * -1 AS \"write merges\" FROM \"snmp\".\"autogen\".\"IOMEGANAS-MIB::ioEntry\" WHERE time > :dashboardTime: AND \"host\"=':NAS:' AND \"ioName\"=':Device:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"ioMgws\") * -1 AS \"write merges\" FROM \"snmp\".\"autogen\".\"IOMEGANAS-MIB::ioEntry\" WHERE time > :dashboardTime: AND \"host\"=':NAS:' AND \"ioName\"=':Device:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "merges",
+						"prefix": "",
+						"suffix": "/s",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "d5804343-f1a2-43af-b6bd-f31741e8bd38",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a8bae5db-f6d0-420c-b9a7-c0552d10ce0f",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "294752da-3b5c-4cd1-9cd7-278d178145f4",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/26/cells/aa7222e3-f408-4936-bf7a-5dd4e3a22853"
 				}
 			}
 		],
 		"templates": [
 			{
-				"tempVar": ":device:",
+				"tempVar": ":NAS:",
 				"values": [
 					{
-						"value": "fw2",
+						"value": "nas1",
 						"type": "influxql",
 						"selected": true
 					}
 				],
-				"id": "6a697408-977b-413a-b16b-86bb7bbb16d3",
+				"id": "5695d38e-d09d-4f7f-908a-d8ea87d59cc0",
 				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON \"snmp\" WITH KEY=\"host\" WHERE \"agent_type\" =~ /^juniper.*$/",
+					"influxql": "SHOW TAG VALUES ON \"snmp\" WITH KEY=\"host\" WHERE \"agent_type\"='lenovoemc_nas'",
 					"measurement": "",
 					"tagKey": "",
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/28/templates/6a697408-977b-413a-b16b-86bb7bbb16d3"
+					"self": "/chronograf/v1/dashboards/26/templates/5695d38e-d09d-4f7f-908a-d8ea87d59cc0"
+				}
+			},
+			{
+				"tempVar": ":Device:",
+				"values": [
+					{
+						"value": "dm-0",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "14a2d80a-0102-4876-bf60-1055ea1a3454",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"snmp\" WITH KEY=\"ioName\" WHERE \"host\"=':NAS:'",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/26/templates/14a2d80a-0102-4876-bf60-1055ea1a3454"
 				}
 			}
 		],
-		"name": "SNMP: Juniper - Device Health",
+		"name": "SNMP: LenovoEMC - Storage Device Performance",
 		"organization": "default",
 		"links": {
-			"self": "/chronograf/v1/dashboards/28",
-			"cells": "/chronograf/v1/dashboards/28/cells",
-			"templates": "/chronograf/v1/dashboards/28/templates"
+			"self": "/chronograf/v1/dashboards/26",
+			"cells": "/chronograf/v1/dashboards/26/cells",
+			"templates": "/chronograf/v1/dashboards/26/templates"
 		}
 	}
 }

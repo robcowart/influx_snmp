@@ -259,7 +259,7 @@
 				"tempVar": ":FileSystem:",
 				"values": [
 					{
-						"value": "/boot",
+						"value": "/mnt/pools/A/A0",
 						"type": "influxql",
 						"selected": true
 					}

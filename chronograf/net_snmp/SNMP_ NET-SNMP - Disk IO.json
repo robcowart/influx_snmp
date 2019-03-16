@@ -20,19 +20,64 @@
 				"name": "IO Load: :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT mean(\"diskIOLA1\") AS \"1-min Load\", mean(\"diskIOLA5\") AS \"5-min Load\", mean(\"diskIOLA15\") AS \"15-min Load\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"diskIODevice\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT mean(\"diskIOLA1\") AS \"1-min Load\", mean(\"diskIOLA5\") AS \"5-min Load\", mean(\"diskIOLA15\") AS \"15-min Load\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"diskIODevice\"=':device:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "snmp",
+							"measurement": "UCD-DISKIO-MIB::diskIOEntry",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "1-min Load",
+									"args": [
+										{
+											"value": "diskIOLA1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "5-min Load",
+									"args": [
+										{
+											"value": "diskIOLA5",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "15-min Load",
+									"args": [
+										{
+											"value": "diskIOLA15",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"diskIODevice": [
+									":device:"
+								],
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT mean(\"diskIOLA1\") AS \"1-min Load\", mean(\"diskIOLA5\") AS \"5-min Load\", mean(\"diskIOLA15\") AS \"15-min Load\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"diskIODevice\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -78,24 +123,24 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "9bd3bc2b-f907-45f4-aee5-a7e1b3870ef8",
+						"id": "a807a469-62df-496d-967a-075f5222b494",
 						"type": "scale",
-						"hex": "#DA6FF1",
-						"name": "Ectoplasm",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "958918a6-53ec-4235-909c-f1fd4b2824a3",
+						"id": "f4df7bf1-e5d2-447e-9aa8-6bfb94516e52",
 						"type": "scale",
-						"hex": "#00717A",
-						"name": "Ectoplasm",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "45d44513-bc02-430d-81a9-d863d41854b2",
+						"id": "dae946f2-634e-4bb4-8879-5a574b411578",
 						"type": "scale",
-						"hex": "#ACFF76",
-						"name": "Ectoplasm",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					}
 				],
@@ -137,7 +182,7 @@
 				"name": "IO Volume: :host: - all storage devices",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"diskIONRead\"),1s) AS \"Bytes Read\", non_negative_derivative(last(\"diskIONWritten\"),1s) * -1 AS \"Bytes Written\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),diskIODevice FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"diskIONRead\"),1s) AS \"Bytes Read\", non_negative_derivative(last(\"diskIONWritten\"),1s) * -1 AS \"Bytes Written\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:),diskIODevice FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -149,7 +194,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"diskIONRead\"),1s) AS \"Bytes Read\", non_negative_derivative(last(\"diskIONWritten\"),1s) * -1 AS \"Bytes Written\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),diskIODevice FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"diskIONRead\"),1s) AS \"Bytes Read\", non_negative_derivative(last(\"diskIONWritten\"),1s) * -1 AS \"Bytes Written\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:),diskIODevice FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -195,24 +240,24 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "9bd3bc2b-f907-45f4-aee5-a7e1b3870ef8",
+						"id": "a807a469-62df-496d-967a-075f5222b494",
 						"type": "scale",
-						"hex": "#DA6FF1",
-						"name": "Ectoplasm",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "958918a6-53ec-4235-909c-f1fd4b2824a3",
+						"id": "f4df7bf1-e5d2-447e-9aa8-6bfb94516e52",
 						"type": "scale",
-						"hex": "#00717A",
-						"name": "Ectoplasm",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "45d44513-bc02-430d-81a9-d863d41854b2",
+						"id": "dae946f2-634e-4bb4-8879-5a574b411578",
 						"type": "scale",
-						"hex": "#ACFF76",
-						"name": "Ectoplasm",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					}
 				],
@@ -254,7 +299,7 @@
 				"name": "IO Volume: :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"diskIONRead\"),1s) AS \"Bytes Read\", non_negative_derivative(last(\"diskIONWritten\"),1s) * -1 AS \"Bytes Written\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"diskIODevice\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"diskIONRead\"),1s) AS \"Bytes Read\", non_negative_derivative(last(\"diskIONWritten\"),1s) * -1 AS \"Bytes Written\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"diskIODevice\"=':device:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -266,7 +311,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"diskIONRead\"),1s) AS \"Bytes Read\", non_negative_derivative(last(\"diskIONWritten\"),1s) * -1 AS \"Bytes Written\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"diskIODevice\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"diskIONRead\"),1s) AS \"Bytes Read\", non_negative_derivative(last(\"diskIONWritten\"),1s) * -1 AS \"Bytes Written\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"diskIODevice\"=':device:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -312,24 +357,24 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "9bd3bc2b-f907-45f4-aee5-a7e1b3870ef8",
+						"id": "a807a469-62df-496d-967a-075f5222b494",
 						"type": "scale",
-						"hex": "#DA6FF1",
-						"name": "Ectoplasm",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "958918a6-53ec-4235-909c-f1fd4b2824a3",
+						"id": "f4df7bf1-e5d2-447e-9aa8-6bfb94516e52",
 						"type": "scale",
-						"hex": "#00717A",
-						"name": "Ectoplasm",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "45d44513-bc02-430d-81a9-d863d41854b2",
+						"id": "dae946f2-634e-4bb4-8879-5a574b411578",
 						"type": "scale",
-						"hex": "#ACFF76",
-						"name": "Ectoplasm",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					}
 				],
@@ -371,7 +416,7 @@
 				"name": "IOPS: :host: - all storage devices",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"diskIOReads\"),1s) AS \"Read IOPS\", non_negative_derivative(last(\"diskIOWrites\"),1s) * -1 AS \"Write IOPS\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),diskIODevice FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"diskIOReads\"),1s) AS \"Read IOPS\", non_negative_derivative(last(\"diskIOWrites\"),1s) * -1 AS \"Write IOPS\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:),diskIODevice FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -383,7 +428,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"diskIOReads\"),1s) AS \"Read IOPS\", non_negative_derivative(last(\"diskIOWrites\"),1s) * -1 AS \"Write IOPS\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),diskIODevice FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"diskIOReads\"),1s) AS \"Read IOPS\", non_negative_derivative(last(\"diskIOWrites\"),1s) * -1 AS \"Write IOPS\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:),diskIODevice FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -429,24 +474,24 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "9bd3bc2b-f907-45f4-aee5-a7e1b3870ef8",
+						"id": "a807a469-62df-496d-967a-075f5222b494",
 						"type": "scale",
-						"hex": "#DA6FF1",
-						"name": "Ectoplasm",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "958918a6-53ec-4235-909c-f1fd4b2824a3",
+						"id": "f4df7bf1-e5d2-447e-9aa8-6bfb94516e52",
 						"type": "scale",
-						"hex": "#00717A",
-						"name": "Ectoplasm",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "45d44513-bc02-430d-81a9-d863d41854b2",
+						"id": "dae946f2-634e-4bb4-8879-5a574b411578",
 						"type": "scale",
-						"hex": "#ACFF76",
-						"name": "Ectoplasm",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					}
 				],
@@ -488,7 +533,7 @@
 				"name": "IOPS: :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"diskIOReads\"),1s) AS \"Read IOPS\", non_negative_derivative(last(\"diskIOWrites\"),1s) * -1 AS \"Write IOPS\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"diskIODevice\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"diskIOReads\"),1s) AS \"Read IOPS\", non_negative_derivative(last(\"diskIOWrites\"),1s) * -1 AS \"Write IOPS\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"diskIODevice\"=':device:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -500,7 +545,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"diskIOReads\"),1s) AS \"Read IOPS\", non_negative_derivative(last(\"diskIOWrites\"),1s) * -1 AS \"Write IOPS\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"diskIODevice\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"diskIOReads\"),1s) AS \"Read IOPS\", non_negative_derivative(last(\"diskIOWrites\"),1s) * -1 AS \"Write IOPS\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"diskIODevice\"=':device:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -546,24 +591,24 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "9bd3bc2b-f907-45f4-aee5-a7e1b3870ef8",
+						"id": "a807a469-62df-496d-967a-075f5222b494",
 						"type": "scale",
-						"hex": "#DA6FF1",
-						"name": "Ectoplasm",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "958918a6-53ec-4235-909c-f1fd4b2824a3",
+						"id": "f4df7bf1-e5d2-447e-9aa8-6bfb94516e52",
 						"type": "scale",
-						"hex": "#00717A",
-						"name": "Ectoplasm",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "45d44513-bc02-430d-81a9-d863d41854b2",
+						"id": "dae946f2-634e-4bb4-8879-5a574b411578",
 						"type": "scale",
-						"hex": "#ACFF76",
-						"name": "Ectoplasm",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					}
 				],
@@ -605,19 +650,63 @@
 				"name": "IO Load: :host: - all storage devices",
 				"queries": [
 					{
-						"query": "SELECT mean(\"diskIOLA1\") AS \"1-min Load\", mean(\"diskIOLA5\") AS \"5-min Load\", mean(\"diskIOLA15\") AS \"15-min Load\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),diskIODevice FILL(null)",
+						"query": "SELECT mean(\"diskIOLA1\") AS \"1-min Load\", mean(\"diskIOLA5\") AS \"5-min Load\", mean(\"diskIOLA15\") AS \"15-min Load\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:),diskIODevice FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "snmp",
+							"measurement": "UCD-DISKIO-MIB::diskIOEntry",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
-							"groupBy": {
-								"time": "",
-								"tags": []
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "1-min Load",
+									"args": [
+										{
+											"value": "diskIOLA1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "5-min Load",
+									"args": [
+										{
+											"value": "diskIOLA5",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "15-min Load",
+									"args": [
+										{
+											"value": "diskIOLA15",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT mean(\"diskIOLA1\") AS \"1-min Load\", mean(\"diskIOLA5\") AS \"5-min Load\", mean(\"diskIOLA15\") AS \"15-min Load\" FROM \"snmp\"..\"UCD-DISKIO-MIB::diskIOEntry\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),diskIODevice FILL(null)",
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"diskIODevice"
+								]
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -663,24 +752,24 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "9bd3bc2b-f907-45f4-aee5-a7e1b3870ef8",
+						"id": "a807a469-62df-496d-967a-075f5222b494",
 						"type": "scale",
-						"hex": "#DA6FF1",
-						"name": "Ectoplasm",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "958918a6-53ec-4235-909c-f1fd4b2824a3",
+						"id": "f4df7bf1-e5d2-447e-9aa8-6bfb94516e52",
 						"type": "scale",
-						"hex": "#00717A",
-						"name": "Ectoplasm",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "45d44513-bc02-430d-81a9-d863d41854b2",
+						"id": "dae946f2-634e-4bb4-8879-5a574b411578",
 						"type": "scale",
-						"hex": "#ACFF76",
-						"name": "Ectoplasm",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
 						"value": "0"
 					}
 				],
@@ -719,19 +808,18 @@
 				"tempVar": ":host:",
 				"values": [
 					{
-						"value": "lab9",
-						"type": "tagValue",
+						"value": "lab1",
+						"type": "influxql",
 						"selected": true
 					}
 				],
 				"id": "9334a763-395a-46d8-a632-eb1f6bb0e65e",
-				"type": "tagValues",
+				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON :database: FROM :measurement: WITH KEY=:tagKey:",
-					"db": "snmp",
-					"measurement": "UCD-DISKIO-MIB::diskIOEntry",
-					"tagKey": "host",
+					"influxql": "SHOW TAG VALUES ON \"snmp\" FROM \"UCD-DISKIO-MIB::diskIOEntry\" WITH KEY=\"host\"",
+					"measurement": "",
+					"tagKey": "",
 					"fieldKey": ""
 				},
 				"links": {
@@ -751,7 +839,7 @@
 				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON \"snmp\" FROM \"UCD-DISKIO-MIB::diskIOEntry\" WITH KEY=\"diskIODevice\" WHERE \"host\"=:host:",
+					"influxql": "SHOW TAG VALUES ON \"snmp\" FROM \"UCD-DISKIO-MIB::diskIOEntry\" WITH KEY=\"diskIODevice\" WHERE \"host\"=':host:'",
 					"measurement": "",
 					"tagKey": "",
 					"fieldKey": ""
