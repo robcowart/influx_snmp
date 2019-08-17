@@ -1,18 +1,18 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.8",
+		"chronografVersion": "1.7.12",
 		"sources": {
 			"0": {
-				"name": "http://192.0.2.11:8086",
+				"name": "http://192.2.0.1:8086",
 				"link": "/chronograf/v1/sources/0"
 			}
 		}
 	},
 	"dashboard": {
-		"id": 30,
+		"id": 43,
 		"cells": [
 			{
-				"i": "b48f51be-3d6c-4286-85d8-cbc9b8690ec4",
+				"i": "bb1ebe89-4774-4afb-8204-931efc27e18d",
 				"x": 0,
 				"y": 6,
 				"w": 6,
@@ -102,7 +102,7 @@
 							"0",
 							""
 						],
-						"label": "",
+						"label": "load",
 						"prefix": "",
 						"suffix": "%",
 						"base": "raw",
@@ -170,11 +170,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/30/cells/b48f51be-3d6c-4286-85d8-cbc9b8690ec4"
+					"self": "/chronograf/v1/dashboards/43/cells/bb1ebe89-4774-4afb-8204-931efc27e18d"
 				}
 			},
 			{
-				"i": "82ffce53-3e1e-4797-8664-6bbcb746d91e",
+				"i": "35507cc5-7809-420c-a909-553fd402a028",
 				"x": 6,
 				"y": 3,
 				"w": 6,
@@ -219,7 +219,7 @@
 							"",
 							""
 						],
-						"label": "",
+						"label": "bytes",
 						"prefix": "",
 						"suffix": "/s",
 						"base": "2",
@@ -287,11 +287,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/30/cells/82ffce53-3e1e-4797-8664-6bbcb746d91e"
+					"self": "/chronograf/v1/dashboards/43/cells/35507cc5-7809-420c-a909-553fd402a028"
 				}
 			},
 			{
-				"i": "9be8b3f5-b381-4ab3-8596-fefb6182b753",
+				"i": "ff5f7455-714a-4c00-af6b-bcc2146f49ee",
 				"x": 0,
 				"y": 3,
 				"w": 6,
@@ -336,7 +336,7 @@
 							"",
 							""
 						],
-						"label": "",
+						"label": "bytes",
 						"prefix": "",
 						"suffix": "/s",
 						"base": "2",
@@ -404,11 +404,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/30/cells/9be8b3f5-b381-4ab3-8596-fefb6182b753"
+					"self": "/chronograf/v1/dashboards/43/cells/ff5f7455-714a-4c00-af6b-bcc2146f49ee"
 				}
 			},
 			{
-				"i": "5c35289f-792b-4f65-86ec-1c8d76c6ab35",
+				"i": "02a39ec2-cd76-420d-b87d-341f50bf1cb3",
 				"x": 6,
 				"y": 0,
 				"w": 6,
@@ -453,7 +453,7 @@
 							"",
 							""
 						],
-						"label": "",
+						"label": "IOPS",
 						"prefix": "",
 						"suffix": "",
 						"base": "10",
@@ -521,11 +521,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/30/cells/5c35289f-792b-4f65-86ec-1c8d76c6ab35"
+					"self": "/chronograf/v1/dashboards/43/cells/02a39ec2-cd76-420d-b87d-341f50bf1cb3"
 				}
 			},
 			{
-				"i": "e2987b6e-04d4-498b-a7ec-992e089bdee3",
+				"i": "b3610520-b74e-4e13-b2e7-853a42d220f7",
 				"x": 0,
 				"y": 0,
 				"w": 6,
@@ -570,7 +570,7 @@
 							"",
 							""
 						],
-						"label": "",
+						"label": "IOPS",
 						"prefix": "",
 						"suffix": "",
 						"base": "10",
@@ -638,11 +638,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/30/cells/e2987b6e-04d4-498b-a7ec-992e089bdee3"
+					"self": "/chronograf/v1/dashboards/43/cells/b3610520-b74e-4e13-b2e7-853a42d220f7"
 				}
 			},
 			{
-				"i": "34e04b71-c2ce-4d68-a663-f79b66e26bd2",
+				"i": "718aaf26-ef56-440f-a7a4-6dc3af6bb9c5",
 				"x": 6,
 				"y": 6,
 				"w": 6,
@@ -731,7 +731,7 @@
 							"0",
 							""
 						],
-						"label": "",
+						"label": "load",
 						"prefix": "",
 						"suffix": "%",
 						"base": "raw",
@@ -799,7 +799,7 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/30/cells/34e04b71-c2ce-4d68-a663-f79b66e26bd2"
+					"self": "/chronograf/v1/dashboards/43/cells/718aaf26-ef56-440f-a7a4-6dc3af6bb9c5"
 				}
 			}
 		],
@@ -823,7 +823,7 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/30/templates/9334a763-395a-46d8-a632-eb1f6bb0e65e"
+					"self": "/chronograf/v1/dashboards/43/templates/9334a763-395a-46d8-a632-eb1f6bb0e65e"
 				}
 			},
 			{
@@ -845,16 +845,16 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/30/templates/759c0900-a744-4b5d-b590-52ba0f1c039d"
+					"self": "/chronograf/v1/dashboards/43/templates/759c0900-a744-4b5d-b590-52ba0f1c039d"
 				}
 			}
 		],
 		"name": "SNMP: NET-SNMP - Disk IO",
 		"organization": "default",
 		"links": {
-			"self": "/chronograf/v1/dashboards/30",
-			"cells": "/chronograf/v1/dashboards/30/cells",
-			"templates": "/chronograf/v1/dashboards/30/templates"
+			"self": "/chronograf/v1/dashboards/43",
+			"cells": "/chronograf/v1/dashboards/43/cells",
+			"templates": "/chronograf/v1/dashboards/43/templates"
 		}
 	}
 }

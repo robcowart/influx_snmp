@@ -1,18 +1,18 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.8",
+		"chronografVersion": "1.7.12",
 		"sources": {
 			"0": {
-				"name": "http://192.0.2.11:8086",
+				"name": "http://192.2.0.1:8086",
 				"link": "/chronograf/v1/sources/0"
 			}
 		}
 	},
 	"dashboard": {
-		"id": 24,
+		"id": 40,
 		"cells": [
 			{
-				"i": "a524617f-8c78-435b-a6ab-3ddc119852f3",
+				"i": "3976e617-9395-417e-8633-a071cd0efc07",
 				"x": 0,
 				"y": 0,
 				"w": 3,
@@ -111,11 +111,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/24/cells/a524617f-8c78-435b-a6ab-3ddc119852f3"
+					"self": "/chronograf/v1/dashboards/40/cells/3976e617-9395-417e-8633-a071cd0efc07"
 				}
 			},
 			{
-				"i": "e5c81285-f8d6-4ae3-9ec3-d3841834994e",
+				"i": "97a51cf5-1b06-41bf-9f18-be1b8de06660",
 				"x": 0,
 				"y": 1,
 				"w": 12,
@@ -160,7 +160,7 @@
 							"",
 							""
 						],
-						"label": "Used",
+						"label": "used",
 						"prefix": "",
 						"suffix": "B",
 						"base": "2",
@@ -181,21 +181,21 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "2d28ed1f-ac3b-48cc-a3b0-a41b6c265c9b",
+						"id": "10e9e4f7-5ed8-4bd9-8fdf-053965a071ae",
 						"type": "scale",
 						"hex": "#31C0F6",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "59bdd26f-60d1-4318-a848-8574e85f38d0",
+						"id": "2dc417ba-5a33-4c67-8d7c-9cbc55abf294",
 						"type": "scale",
 						"hex": "#A500A5",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "d58cfb1e-acc6-4f44-87f1-ef5022813c95",
+						"id": "e2f2a6f7-0a81-4db6-9d9f-a19722691c81",
 						"type": "scale",
 						"hex": "#FF7E27",
 						"name": "Nineteen Eighty Four",
@@ -228,7 +228,7 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/24/cells/e5c81285-f8d6-4ae3-9ec3-d3841834994e"
+					"self": "/chronograf/v1/dashboards/40/cells/97a51cf5-1b06-41bf-9f18-be1b8de06660"
 				}
 			}
 		],
@@ -252,7 +252,7 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/24/templates/f58c6c0a-aeb0-4889-b5f7-1f747a36890d"
+					"self": "/chronograf/v1/dashboards/40/templates/f58c6c0a-aeb0-4889-b5f7-1f747a36890d"
 				}
 			},
 			{
@@ -274,16 +274,16 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/24/templates/b74ebe6e-f514-4f9e-b284-afcf1459f7eb"
+					"self": "/chronograf/v1/dashboards/40/templates/b74ebe6e-f514-4f9e-b284-afcf1459f7eb"
 				}
 			}
 		],
 		"name": "SNMP: LenovoEMC - File System Capacity",
 		"organization": "default",
 		"links": {
-			"self": "/chronograf/v1/dashboards/24",
-			"cells": "/chronograf/v1/dashboards/24/cells",
-			"templates": "/chronograf/v1/dashboards/24/templates"
+			"self": "/chronograf/v1/dashboards/40",
+			"cells": "/chronograf/v1/dashboards/40/cells",
+			"templates": "/chronograf/v1/dashboards/40/templates"
 		}
 	}
 }
