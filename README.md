@@ -1,3 +1,7 @@
+# THIS REPOSITORY IS ARCHIVED AND SHOULD NOT BE USED!!!
+
+## While Telegraf's SNMP input has some advantages over other open source options, the simple fact is that it has serious deficiencies that make it almost useless for anything beyond the simplest low-scale use-cases. If I ever find an SNMP poller worth recommending I will note it here at that time.
+
 # SNMP Data Collection and Analytics with the TICK Stack
 `influx_snmp` provides a solution for SNMP data collection and analytics using InfluxData's TICK Stack - Telegraf, InfluxDB, Chronograf and Kapacitor.
 
